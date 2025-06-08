@@ -5,11 +5,13 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,8 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
+      <body 
         className={`${inter.variable} ${sora.variable} antialiased`}
+        suppressHydrationWarning={true}
       >
         {children}
       </body>
