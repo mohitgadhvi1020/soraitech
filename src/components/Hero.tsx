@@ -35,6 +35,30 @@ export default function Hero() {
           >
             Sorai Tech builds future-ready software with AI-first thinking. We transform your ideas into intelligent, scalable solutions.
           </motion.p>
+
+          {/* Playful Offshore Partnership Section */}
+          <motion.div
+            className="mb-10 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 border border-primary/10">
+              <div className="flex items-center justify-center gap-4 mb-5">
+                <span className="text-4xl animate-bounce">🌍</span>
+                <p className="text-lg md:text-xl font-bold text-gray-700 dark:text-gray-200">
+                  Your Offshore Development Dream Team
+                </p>
+                <span className="text-4xl animate-pulse">✨</span>
+              </div>
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <span className="font-bold text-primary text-lg">Why go offshore?</span> Because while you sleep, we&apos;re coding! 
+                🌙→☀️ Our India-based wizards work around the clock, delivering 
+                <span className="font-bold text-secondary text-lg"> premium quality at smart prices</span>. 
+                It&apos;s like having a tech genie in your pocket! 🧞‍♂️
+              </p>
+            </div>
+          </motion.div>
           
           <motion.div
             className="flex items-center justify-center gap-2 mb-10"

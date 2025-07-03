@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white py-16">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-heading font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -79,53 +79,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="text-gray-300 hover:text-primary transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/team" className="text-gray-300 hover:text-primary transition-colors">
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-300 hover:text-primary transition-colors">
-                  Blog & Insights
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-gray-300 hover:text-primary transition-colors">
-                  Careers
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact */}
           <div>
             <h4 className="text-lg font-bold mb-6">Contact</h4>
             <div className="flex items-center space-x-3 mb-4">
               <FiMail className="text-primary" />
               <a 
-                href="mailto:info@soraitech.com" 
+                href="mailto:contact@soraitech.com" 
                 className="text-gray-300 hover:text-primary transition-colors"
               >
-                info@soraitech.com
+                contact@soraitech.com
               </a>
             </div>
             <p className="text-gray-300 mb-6">
-              123 Tech Avenue <br />
-              Rajkot, Gujarat <br />
+              Floor 234, Rajkot, Gujarat <br />
               India
             </p>
             <Link href="/contact" className="btn-primary inline-block">

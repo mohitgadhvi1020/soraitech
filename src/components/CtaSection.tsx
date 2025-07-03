@@ -43,8 +43,8 @@ export default function CtaSection() {
             <Link href="/contact" className="btn-primary">
               Schedule a Consultation
             </Link>
-            <Link href="/case-studies" className="btn-secondary">
-              View Our Work
+            <Link href="/services" className="btn-secondary">
+              View Our Services
             </Link>
           </motion.div>
         </div>

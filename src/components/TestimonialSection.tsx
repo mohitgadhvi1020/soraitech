@@ -11,44 +11,23 @@ const TestimonialSection = () => {
   const testimonials = [
     {
       id: 1,
-      text: "Sorai Tech delivered an exceptional AI solution that transformed our business operations. Their expertise in machine learning is unmatched!",
-      name: "Sarah Chen",
-      title: "CTO at InnovateCorp",
+      text: "Sorai Tech demonstrated exceptional commitment and technical skills throughout our 6-week finance platform project. Their expertise in full-stack development, cloud deployment, and payment integrations was outstanding. The team's dedication to quality and timely delivery made this collaboration a great success.",
+      name: "Parag Agarwal",
+      title: "Engineering Manager at Piramal Finance",
       rating: 5
     },
     {
       id: 2,
-      text: "The team's attention to detail and innovative approach exceeded our expectations. Our productivity increased by 300%!",
-      name: "Michael Rodriguez",
-      title: "CEO at TechFlow",
+      text: "I needed a professional cybersecurity website that would establish credibility with government clients. Sorai Tech's team of 3 developers built it in 4 weeks using React, Next.js, and implemented advanced security features. Their attention to content structure and SEO optimization was impressive. Worth every penny!",
+      name: "Pete Slade",
+      title: "Founder & Cybersecurity Strategist",
       rating: 5
     },
     {
       id: 3,
-      text: "Working with Sorai Tech was a game-changer. They delivered a scalable solution that perfectly fit our needs.",
-      name: "Emily Johnson",
-      title: "Product Manager at DataSync",
-      rating: 5
-    },
-    {
-      id: 4,
-      text: "Outstanding work! The AI integration was seamless and the results were immediate. Highly recommended!",
-      name: "David Park",
-      title: "Founder at StartupVibe",
-      rating: 5
-    },
-    {
-      id: 5,
-      text: "Professional, efficient, and innovative. Sorai Tech helped us stay ahead of the competition with cutting-edge technology.",
-      name: "Lisa Zhang",
-      title: "Operations Director at CloudTech",
-      rating: 5
-    },
-    {
-      id: 6,
-      text: "The quality of their work is exceptional. They transformed our vision into reality with precision and creativity.",
-      name: "James Wilson",
-      title: "Head of Engineering at FutureSoft",
+      text: "Working with Sorai Tech for 8 weeks was seamless. Their developers showed strong skills in TypeScript, responsive design, and security best practices. Daily standups, weekly demos, and clear communication made the collaboration smooth. They delivered on time and within budget.",
+      name: "Nate Wondra",
+      title: "Team Lead at Pete Slade Consulting",
       rating: 5
     }
   ];
@@ -150,10 +129,10 @@ const TestimonialSection = () => {
           <div
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-12"
-            style={{
+              style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
-            }}
+              }}
           >
             {testimonials.map((testimonial, index) => (
               <ScrollReveal
@@ -164,14 +143,14 @@ const TestimonialSection = () => {
                 duration={0.5}
                 preVisible={index < 2} // Make first 2 cards pre-visible
                 distance={50}
-              >
-                <motion.div
+            >
+              <motion.div
                   className="p-6 bg-gray-900/95 border border-gray-700/50 rounded-xl shadow-2xl backdrop-blur-sm group hover:shadow-orange-500/20 hover:shadow-2xl transition-all duration-300 h-full"
-                  whileHover={{ 
+                whileHover={{ 
                     scale: 1.02,
                     y: -5,
-                  }}
-                >
+                }}
+              >
                 {/* Stars Rating */}
                 <div className="flex space-x-1 mb-4">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -211,33 +190,33 @@ const TestimonialSection = () => {
 
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400/0 to-pink-600/0 group-hover:from-orange-400/10 group-hover:to-pink-600/10 rounded-xl transition-all duration-500 pointer-events-none" />
-                </motion.div>
+              </motion.div>
               </ScrollReveal>
             ))}
           </div>
-        </div>
+      </div>
 
-        {/* Call to Action */}
-        <motion.div 
+      {/* Call to Action */}
+      <motion.div 
           className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
+        viewport={{ once: true }}
+      >
           <Link href="/contact">
             <motion.div
               className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 cursor-pointer"
-              whileHover={{ 
-                boxShadow: "0 20px 40px rgba(255, 107, 0, 0.3)",
-                y: -2
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Your Success Story
+          whileHover={{ 
+            boxShadow: "0 20px 40px rgba(255, 107, 0, 0.3)",
+            y: -2
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Start Your Success Story
             </motion.div>
           </Link>
-        </motion.div>
+      </motion.div>
       </div>
 
       {/* Custom Scrollbar Styles */}

@@ -245,15 +245,14 @@ const ProjectWorkSection = () => {
                 className="text-2xl font-bold text-gray-900"
                 variants={detailsVariants}
               >
-                Project 1 - AI Solution
+                Project 1 - Cybersecurity Expert Platform
               </motion.h3>
               <motion.p 
                 className="text-gray-600 leading-relaxed"
                 variants={detailsVariants}
               >
-                Our first showcase demonstrates cutting-edge AI integration with 
-                modern web technologies. This project highlights our expertise in 
-                building intelligent, user-friendly applications.
+                Professional website development for cybersecurity strategist Pete Slade, 
+                showcasing expertise and enabling thought leadership in the cybersecurity domain.
               </motion.p>
             </motion.div>
 
@@ -276,24 +275,21 @@ const ProjectWorkSection = () => {
                 variants={featuresContainerVariants}
               >
                 {[
-                  "AI-Powered Analytics",
-                  "Real-time Processing",
-                  "Modern UI/UX Design",
-                  "Cloud Integration",
-                  "Mobile Responsive"
+                  "✅ High-performance platform for Pete Slade 🌐 (cybersecurity strategist & AI technologist)",
+                  "🎯 Goal: Showcase credentials, enable outreach, reinforce thought leadership",
+                  "🛡️ Website: Credible, content-rich, secure for a Congressional cybersecurity advisor",
+                  "👥 Team: 4 (2 React frontend, 2 Node.js backend, 1 designer)",
+                  "🚀 Delivered: UI/UX, front-end, content structuring, optimization, secure deployment",
+                  "🤝 Client benefits: 💰 Cost-effective, ⏱️ fast delivery, 🏢 enterprise security, 🔄 ongoing support"
                 ].map((feature, index) => (
                   <motion.div 
                     key={`p1-${index}`} 
-                    className="flex items-center space-x-3"
+                    className="flex items-start"
                     variants={featureVariants}
                     whileHover={{ x: 5, scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <motion.div 
-                      className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"
-                      whileHover={{ scale: 1.5 }}
-                    />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-gray-700 leading-relaxed">{feature}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -358,15 +354,14 @@ const ProjectWorkSection = () => {
                 className="text-2xl font-bold text-gray-900"
                 variants={detailsVariants}
               >
-                Project 2 - Enterprise Platform
+                Project 2 - Piramal Finance Platform
               </motion.h3>
               <motion.p 
                 className="text-gray-600 leading-relaxed"
                 variants={detailsVariants}
               >
-                Our second project showcases enterprise-level development with 
-                scalable architecture and advanced functionality. Built for 
-                performance and reliability at scale.
+                We delivered a modern, user-friendly site that streamlined applications and boosted engagement.
+                Complete with tailored UX/UI, backend integration, content, and automation for the Indian market.
               </motion.p>
             </motion.div>
 
@@ -389,24 +384,21 @@ const ProjectWorkSection = () => {
                 variants={featuresContainerVariants}
               >
                 {[
-                  "Enterprise Architecture",
-                  "Advanced Security",
-                  "Microservices Design",
-                  "API Integration",
-                  "High Availability"
+                  "✅ Team: 10 developers, 2 QA, 3 managers",
+                  "✅ Cut development costs by 35% 💰",
+                  "✅ Reduced time-to-market by 40% ⚡",
+                  "✅ Achieved faster, smoother loan approvals 📈",
+                  "🚀 Tech Stack: React, Node.js, MongoDB, AWS",
+                  "🎯 Tailored UX/UI for Indian financial market"
                 ].map((feature, index) => (
                   <motion.div 
                     key={`p2-${index}`} 
-                    className="flex items-center space-x-3"
+                    className="flex items-start"
                     variants={featureVariants}
                     whileHover={{ x: 5, scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <motion.div 
-                      className="w-2 h-2 bg-purple-600 rounded-full flex-shrink-0"
-                      whileHover={{ scale: 1.5 }}
-                    />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-gray-700 leading-relaxed">{feature}</span>
                   </motion.div>
                 ))}
               </motion.div>
