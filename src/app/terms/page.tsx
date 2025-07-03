@@ -121,7 +121,7 @@ export default function TermsPage() {
               Last updated: January 1, 2024
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              These Terms of Service govern your use of Sorai Tech's website and services. Please read them carefully 
+              These Terms of Service govern your use of Sorai Tech&apos;s website and services. Please read them carefully 
               as they contain important information about your rights and obligations.
             </p>
           </motion.div>
