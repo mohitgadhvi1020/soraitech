@@ -169,13 +169,13 @@ export default function ContactPage() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-100 dark:border-gray-700"
+                className="bg-gray-900/95 border border-gray-700/50 rounded-3xl p-8 shadow-2xl backdrop-blur-sm"
               >
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold font-heading mb-4 bg-gradient-to-r from-secondary to-purple-600 bg-clip-text text-transparent">
-                    Send a Message
+                  <h2 className="text-3xl font-bold font-heading mb-4 text-white">
+                    Send a <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Message</span>
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-300">
                     Tell us about your project and we&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
@@ -203,7 +203,7 @@ export default function ContactPage() {
                       </div>
                     )}
                     <div>
-                      <label htmlFor="name" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+                      <label htmlFor="name" className="block mb-3 font-semibold text-white">
                         Your Name
                       </label>
                       <input
@@ -212,7 +212,7 @@ export default function ContactPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 dark:bg-gray-700 text-lg hover:border-primary/50"
+                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
                         placeholder="John Doe"
                         required
                       />
@@ -220,7 +220,7 @@ export default function ContactPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="email" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+                        <label htmlFor="email" className="block mb-3 font-semibold text-white">
                           Email Address
                         </label>
                         <input
@@ -229,14 +229,14 @@ export default function ContactPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 dark:bg-gray-700 text-lg hover:border-primary/50"
+                          className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
                           placeholder="john@example.com"
                           required
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="phone" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+                        <label htmlFor="phone" className="block mb-3 font-semibold text-white">
                           Phone Number (Optional)
                         </label>
                         <input
@@ -245,14 +245,14 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 dark:bg-gray-700 text-lg hover:border-primary/50"
+                          className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
                           placeholder="+91 1234567890"
                         />
                       </div>
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+                      <label htmlFor="subject" className="block mb-3 font-semibold text-white">
                         Subject
                       </label>
                       <select
@@ -260,19 +260,19 @@ export default function ContactPage() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 dark:bg-gray-700 text-lg hover:border-primary/50"
+                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
                         required
                       >
-                        <option value="">Select an option</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Project Discussion">Project Discussion</option>
-                        <option value="Partnership">Partnership</option>
-                        <option value="Support">Support</option>
+                        <option value="" className="bg-gray-800">Select an option</option>
+                        <option value="General Inquiry" className="bg-gray-800">General Inquiry</option>
+                        <option value="Project Discussion" className="bg-gray-800">Project Discussion</option>
+                        <option value="Partnership" className="bg-gray-800">Partnership</option>
+                        <option value="Support" className="bg-gray-800">Support</option>
                       </select>
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+                      <label htmlFor="message" className="block mb-3 font-semibold text-white">
                         Your Message
                       </label>
                       <textarea
@@ -281,7 +281,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={6}
-                        className="w-full px-5 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 dark:bg-gray-700 text-lg hover:border-primary/50 resize-none"
+                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50 resize-none"
                         placeholder="Tell us about your project or inquiry..."
                         required
                       ></textarea>
@@ -292,7 +292,7 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-orange-500 to-pink-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center text-lg disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center">

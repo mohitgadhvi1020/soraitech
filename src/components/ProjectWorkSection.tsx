@@ -258,7 +258,7 @@ const ProjectWorkSection = () => {
               viewport={viewportSettings}
             >
               <motion.h4 
-                className="text-xl font-semibold text-gray-900"
+                className="text-xl font-semibold text-white"
                 variants={featureVariants}
               >
                 Key Features
@@ -392,7 +392,7 @@ const ProjectWorkSection = () => {
               viewport={viewportSettings}
             >
               <motion.h4 
-                className="text-xl font-semibold text-gray-900"
+                className="text-xl font-semibold text-white"
                 variants={featureVariants}
               >
                 Key Features
