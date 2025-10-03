@@ -36,51 +36,66 @@ const processSteps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-dark/30">
+    <section className="py-32 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <h2 className="section-title">Our Process</h2>
-          <p className="section-subtitle max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Process</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We follow a systematic approach to deliver successful outcomes for your projects
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: step.delay }}
-              className="rounded-lg overflow-hidden shadow-md bg-white dark:bg-dark/50 hover:shadow-lg transition-all"
+              transition={{ duration: 0.7, delay: step.delay }}
+              className="bg-gray-900/95 border border-gray-700/50 rounded-xl shadow-2xl backdrop-blur-sm overflow-hidden hover-lift group"
             >
-              <div className={`${step.bgColor} p-4 flex justify-center items-center`}>
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+              <div className="bg-gradient-to-r from-orange-500 to-pink-600 p-6 flex justify-center items-center">
+                <motion.div 
+                  className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: 10 }}
+                >
                   {step.icon}
-                </div>
+                </motion.div>
               </div>
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold mr-3">
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-400/20 to-pink-600/20 text-orange-400 flex items-center justify-center font-bold mr-4 border border-orange-400/30">
                     {index + 1}
                   </div>
-                  <h3 className="font-bold text-xl font-heading">{step.title}</h3>
+                  <h3 className="font-heading font-bold text-xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-pink-600 transition-all duration-300">
+                    {step.title}
+                  </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+                <p className="text-gray-300 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="hidden md:block relative mt-12">
-          <div className="absolute h-1 bg-gradient-to-r from-primary to-secondary top-0 left-[12.5%] right-[12.5%] rounded-full" />
+        <div className="hidden lg:block relative mt-16">
+          <motion.div 
+            className="absolute h-1 bg-gradient-to-r from-orange-400 to-pink-600 top-0 left-[12.5%] right-[12.5%] rounded-full"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+          />
         </div>
       </div>
     </section>

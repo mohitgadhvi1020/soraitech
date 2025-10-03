@@ -10,7 +10,7 @@ export default function CareersPage() {
     {
       title: "Senior Full-Stack Developer",
       department: "Engineering",
-      location: "Rajkot, Gujarat / Remote",
+      location: "Bangalore, Karnataka / Remote",
       type: "Full-time",
       experience: "3-5 years",
       salary: "₹8-15 LPA",
@@ -25,7 +25,7 @@ export default function CareersPage() {
     {
       title: "AI/ML Engineer",
       department: "Engineering",
-      location: "Rajkot, Gujarat / Remote",
+      location: "Bangalore, Karnataka / Remote",
       type: "Full-time",
       experience: "2-4 years",
       salary: "₹10-18 LPA",
@@ -40,7 +40,7 @@ export default function CareersPage() {
     {
       title: "DevOps Engineer",
       department: "Infrastructure",
-      location: "Rajkot, Gujarat / Remote",
+      location: "Bangalore, Karnataka / Remote",
       type: "Full-time",
       experience: "2-4 years",
       salary: "₹7-12 LPA",

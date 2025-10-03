@@ -4,7 +4,6 @@ import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import ProjectWorkSection from "@/components/ProjectWorkSection";
 import TestimonialSection from "@/components/TestimonialSection";
-import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,11 +12,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <ServicesSection />
-        <ProcessSection />
         <ProjectWorkSection />
+        <ProcessSection />
+        <ServicesSection />
         <TestimonialSection />
-        <CtaSection />
       </main>
       <Footer />
     </>

@@ -122,28 +122,11 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">Our Location</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-lg">
-                        Floor 234, Rajkot, Gujarat<br />
-                        India
+                        Bangalore, India
                       </p>
                     </div>
                   </motion.div>
                   
-                  <motion.div 
-                    className="group flex items-start space-x-4 p-4 rounded-xl hover:bg-primary/5 transition-colors duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="bg-gradient-to-r from-secondary to-purple-600 p-4 rounded-xl group-hover:shadow-lg transition-shadow">
-                      <FiPhone className="text-white text-xl" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">Phone Numbers</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg">
-                        +91 7231972519<br />
-                        +91 6351068776
-                      </p>
-                    </div>
-                  </motion.div>
                   
                   <motion.div 
                     className="group flex items-start space-x-4 p-4 rounded-xl hover:bg-primary/5 transition-colors duration-300"
@@ -156,8 +139,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">Email Address</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-lg">
-                        contact@soraitech.com<br />
-                        soraitech@gmail.com
+                        contact@soraitech.com
                       </p>
                     </div>
                   </motion.div>

@@ -95,8 +95,8 @@ export default function TermsPage() {
     {
       title: "Governing Law",
       content: [
-        "These terms are governed by the laws of Gujarat, India.",
-        "Any disputes arising from these terms or our services will be subject to the jurisdiction of courts in Rajkot, Gujarat.",
+        "These terms are governed by the laws of Karnataka, India.",
+        "Any disputes arising from these terms or our services will be subject to the jurisdiction of courts in Bangalore, Karnataka.",
         "Both parties agree to attempt to resolve disputes through good faith negotiation before pursuing legal action.",
         "If any provision of these terms is found to be unenforceable, the remaining provisions remain in full effect.",
         "These terms constitute the entire agreement between parties regarding the use of our website and general service terms."
@@ -190,10 +190,8 @@ export default function TermsPage() {
               <div className="mt-8 p-6 bg-white dark:bg-dark/50 rounded-lg">
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   <strong>Sorai Tech</strong><br />
-                  123 Tech Avenue<br />
-                  Rajkot, Gujarat, India<br />
-                  Email: info@soraitech.com<br />
-                  Phone: +91 7231972519
+                  Bangalore, India<br />
+                  Email: info@soraitech.com
                 </p>
               </div>
               

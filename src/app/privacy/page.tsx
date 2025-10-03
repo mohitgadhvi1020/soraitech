@@ -166,8 +166,7 @@ export default function PrivacyPage() {
               <div className="mt-8 p-6 bg-white dark:bg-dark/50 rounded-lg">
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   <strong>Sorai Tech</strong><br />
-                  123 Tech Avenue<br />
-                  Rajkot, Gujarat, India<br />
+                  Bangalore, India<br />
                   Email: info@soraitech.com
                 </p>
               </div>
