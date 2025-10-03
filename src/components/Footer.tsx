@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiLinkedin, FiTwitter, FiGithub, FiMail } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,38 +13,9 @@ export default function Footer() {
             <h3 className="text-2xl font-heading font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
               Sorai Tech
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300">
               Engineering smart solutions with AI & code. We build future-ready software with AI-first thinking.
             </p>
-            <div className="flex space-x-4 mt-6">
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-gray-300 hover:text-orange-400 transition-colors"
-              >
-                <FiLinkedin size={20} />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="text-gray-300 hover:text-orange-400 transition-colors"
-              >
-                <FiTwitter size={20} />
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="text-gray-300 hover:text-orange-400 transition-colors"
-              >
-                <FiGithub size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Services */}
