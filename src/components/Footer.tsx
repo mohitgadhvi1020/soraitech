@@ -54,7 +54,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6">Contact</h4>
             <div className="flex items-center space-x-3 mb-4">
-              <FiMail className="text-primary" />
+              <FiMail className="text-orange-400 text-xl flex-shrink-0" />
               <a 
                 href="mailto:contact@soraitech.com" 
                 className="text-gray-300 hover:text-orange-400 transition-colors"
@@ -62,10 +62,10 @@ export default function Footer() {
                 contact@soraitech.com
               </a>
             </div>
-            <p className="text-gray-200 mb-6">
+            <p className="text-gray-300 mb-6">
               Bangalore, India
             </p>
-            <Link href="/contact" className="btn-primary inline-block">
+            <Link href="/contact" className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-block">
               Contact Us
             </Link>
           </div>
