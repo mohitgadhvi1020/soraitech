@@ -1,196 +1,112 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FiCalendar, FiUser, FiArrowRight, FiTrendingUp, FiCode, FiCpu } from "react-icons/fi";
+import { FiCode, FiCpu, FiTrendingUp } from "react-icons/fi";
 
 export default function BlogPage() {
-  const featuredPosts = [
-    {
-      title: "The Future of AI in Software Development",
-      excerpt: "Exploring how artificial intelligence is revolutionizing the way we build and deploy software applications.",
-      author: "Mohit Ghanghaniya",
-      date: "2024-01-15",
-      category: "AI & Machine Learning",
-      image: "/images/blog/ai-future.jpg",
-      readTime: "5 min read"
-    },
-    {
-      title: "Building Scalable Full-Stack Applications",
-      excerpt: "Best practices for architecting modern web applications that can handle growth and complexity.",
-      author: "Sorai Tech Team",
-      date: "2024-01-10",
-      category: "Web Development",
-      image: "/images/blog/fullstack.jpg",
-      readTime: "8 min read"
-    },
-    {
-      title: "Cloud-First Architecture: A Modern Approach",
-      excerpt: "Why cloud-native solutions are essential for businesses looking to scale and innovate quickly.",
-      author: "Mohit Ghanghaniya",
-      date: "2024-01-05",
-      category: "Cloud & DevOps",
-      image: "/images/blog/cloud-architecture.jpg",
-      readTime: "6 min read"
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setEmail("");
     }
-  ];
+  };
 
   const categories = [
-    { name: "AI & Machine Learning", icon: FiCpu, count: 12 },
-    { name: "Web Development", icon: FiCode, count: 18 },
-    { name: "Cloud & DevOps", icon: FiTrendingUp, count: 8 },
-    { name: "Industry Insights", icon: FiUser, count: 15 }
+    { name: "AI & Machine Learning", icon: FiCpu },
+    { name: "Web Development", icon: FiCode },
+    { name: "Cloud & DevOps", icon: FiTrendingUp },
   ];
 
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20">
-        {/* Hero Section */}
+      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
         <section className="container-custom mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heading">
-              Blog & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Insights</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
+              Blog & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Insights</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Stay updated with the latest trends in AI, software development, and digital transformation.
+            <p className="text-lg text-gray-300">
+              Practical articles on building software, integrating AI, and scaling teams.
             </p>
           </motion.div>
         </section>
 
-        {/* Categories */}
         <section className="container-custom mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold mb-4 font-heading">Popular Categories</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Explore our content by topic
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-xl font-bold mb-6 text-white">Topics we write about</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {categories.map((category, index) => {
               const IconComponent = category.icon;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-dark/50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer"
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-6 flex items-center gap-4"
                 >
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="text-primary text-xl" />
+                  <div className="bg-white/5 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <IconComponent className="text-orange-400 text-lg" />
                   </div>
-                  <h3 className="font-bold mb-2">{category.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{category.count} articles</p>
+                  <h3 className="font-semibold text-white text-sm">{category.name}</h3>
                 </motion.div>
               );
             })}
           </div>
         </section>
 
-        {/* Featured Posts */}
-        <section className="container-custom mb-20">
+        <section className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.5 }}
+            className="max-w-lg mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mb-4 font-heading">Featured Articles</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Our latest insights and technical deep-dives
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPosts.map((post, index) => (
-              <motion.article
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-              >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <div className="text-4xl font-bold text-primary">
-                    {post.category.split(' ')[0][0]}{post.category.split(' ')[1]?.[0] || ''}
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-3">
-                    <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">
-                      {post.category}
-                    </span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 font-heading">{post.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <FiUser size={16} />
-                      <span>{post.author}</span>
-                      <FiCalendar size={16} />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
-                    </div>
-                    
-                    <button className="text-primary hover:text-secondary transition-colors">
-                      <FiArrowRight size={20} />
-                    </button>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
-        {/* Coming Soon Section */}
-        <section className="bg-gray-50 dark:bg-dark/30 py-20">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto text-center"
-            >
-              <h2 className="text-3xl font-bold mb-4 font-heading">More Content Coming Soon</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                We&apos;re working on bringing you more insights, tutorials, and industry analysis. 
-                Subscribe to our newsletter to get notified when new articles are published.
+            <div className="bg-gray-900/80 border border-gray-700/50 rounded-2xl p-10">
+              <h2 className="text-2xl font-bold mb-3 font-heading text-white">Coming Soon</h2>
+              <p className="text-gray-300 mb-8 text-sm">
+                We&apos;re preparing in-depth articles and case studies. Leave your email and we&apos;ll let you know when we publish.
               </p>
               
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-dark/50"
-                />
-                <button
-                  type="submit"
-                  className="btn-primary px-6 py-3 whitespace-nowrap"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </motion.div>
-          </div>
+              {subscribed ? (
+                <div className="bg-green-900/20 border border-green-800/50 rounded-lg p-4">
+                  <p className="text-green-400 text-sm font-medium">Thanks! We&apos;ll notify you when new content is live.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    placeholder="you@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm transition-colors duration-200"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity duration-200 whitespace-nowrap text-sm"
+                  >
+                    Notify Me
+                  </button>
+                </form>
+              )}
+            </div>
+          </motion.div>
         </section>
       </main>
       <Footer />
     </>
   );
-} 
+}

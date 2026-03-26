@@ -10,203 +10,167 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-        {/* Hero Section */}
         <section className="container-custom mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heading text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Sorai Tech</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              We&apos;re passionate technologists who believe in the transformative power of AI and intelligent software solutions.
+            <p className="text-xl text-gray-300">
+              A product studio that designs, builds, and ships — so you don&apos;t have to hire 8 people to get one product out the door.
             </p>
           </motion.div>
         </section>
 
-        {/* Story Section */}
         <section className="container-custom mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-6 font-heading text-white">Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Story</span></h2>
-              <p className="text-gray-300 mb-6">
-                Founded with a vision to bridge the gap between cutting-edge AI technology and practical business solutions, 
-                Sorai Tech was born from the recognition that the future belongs to businesses that can effectively leverage 
-                artificial intelligence and smart software development.
+              <h2 className="text-2xl font-bold mb-5 font-heading text-white">Our Story</h2>
+              <p className="text-gray-300 mb-5">
+                Sorai Tech started because we saw too many businesses stuck between two bad options: expensive agencies that over-scope everything, or freelancers that disappear mid-project. We wanted to build something in between — a tight, reliable product team that you can trust to deliver.
               </p>
-              <p className="text-gray-300 mb-6">
-                Based in Bangalore, Karnataka, we&apos;ve grown from a small team of passionate developers to a comprehensive 
-                technology consultancy that serves clients across various industries, helping them navigate the complex 
-                landscape of digital transformation.
+              <p className="text-gray-300 mb-5">
+                Founded by IIT Bombay alumni in Bangalore, we&apos;ve grown into a team of designers, engineers, and product managers who&apos;ve shipped products across cybersecurity, manufacturing, fintech, and more. Our clients are primarily in the US, and we operate on US-friendly timezones.
               </p>
               <p className="text-gray-300">
-                Our expertise spans across AI integration, full-stack development, cloud solutions, and technical architecture, 
-                making us your one-stop destination for modern software solutions.
+                We handle everything from Figma wireframes to React frontends to backend APIs to deployment. You bring the idea and the domain expertise — we bring the team and the execution.
               </p>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gray-900/95 border border-gray-700/50 rounded-2xl p-8 shadow-2xl backdrop-blur-sm"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-gray-900/80 border border-gray-700/50 rounded-2xl p-8"
             >
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 mb-2">50+</h3>
-                  <p className="text-gray-300">Projects Completed</p>
+                  <p className="text-3xl font-bold text-orange-400 mb-1">15+</p>
+                  <p className="text-gray-400 text-sm">Products Shipped</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 mb-2">20+</h3>
-                  <p className="text-gray-300">Happy Clients</p>
+                  <p className="text-3xl font-bold text-orange-400 mb-1">6+</p>
+                  <p className="text-gray-400 text-sm">US & Global Clients</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 mb-2">3+</h3>
-                  <p className="text-gray-300">Years Experience</p>
+                  <p className="text-3xl font-bold text-orange-400 mb-1">3+</p>
+                  <p className="text-gray-400 text-sm">Years in Business</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 mb-2">10+</h3>
-                  <p className="text-gray-300">Technologies</p>
+                  <p className="text-3xl font-bold text-orange-400 mb-1">50+</p>
+                  <p className="text-gray-400 text-sm">Engineers & Designers</p>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Mission, Vision, Values */}
-        <section className="py-20">
+        <section className="py-16">
           <div className="container-custom">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              transition={{ duration: 0.5 }}
+              className="text-center mb-14"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading text-white">Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Foundation</span></h2>
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Everything we do is guided by our core principles and commitment to excellence.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading text-white">What We Stand For</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-gray-900/95 border border-gray-700/50 rounded-xl p-8 text-center shadow-2xl backdrop-blur-sm hover:shadow-orange-500/20 transition-all duration-300"
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
               >
-                <div className="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FiTarget className="text-orange-400 text-2xl" />
+                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <FiTarget className="text-orange-400 text-xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 font-heading text-white">Our Mission</h3>
-                <p className="text-gray-300">
-                  To democratize AI and advanced technology solutions, making them accessible and practical for businesses of all sizes.
+                <h3 className="text-lg font-bold mb-3 text-white">Ship, Don&apos;t Stall</h3>
+                <p className="text-gray-300 text-sm">
+                  We bias toward shipping. Clear scope, tight sprints, working software every week. No endless discovery phases.
                 </p>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-gray-900/95 border border-gray-700/50 rounded-xl p-8 text-center shadow-2xl backdrop-blur-sm hover:shadow-orange-500/20 transition-all duration-300"
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
               >
-                <div className="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FiEye className="text-pink-600 text-2xl" />
+                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <FiEye className="text-pink-500 text-xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 font-heading text-white">Our Vision</h3>
-                <p className="text-gray-300">
-                  To be the leading AI-first software consultancy that transforms how businesses operate in the digital age.
+                <h3 className="text-lg font-bold mb-3 text-white">Full Transparency</h3>
+                <p className="text-gray-300 text-sm">
+                  Daily standups, shared boards, weekly demos. You see everything — designs, code progress, blockers — in real time.
                 </p>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-gray-900/95 border border-gray-700/50 rounded-xl p-8 text-center shadow-2xl backdrop-blur-sm hover:shadow-orange-500/20 transition-all duration-300"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
               >
-                <div className="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FiHeart className="text-orange-400 text-2xl" />
+                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <FiHeart className="text-orange-400 text-xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 font-heading text-white">Our Values</h3>
-                <p className="text-gray-300">
-                  Innovation, integrity, and client success drive everything we do. We believe in transparent communication and delivering exceptional results.
+                <h3 className="text-lg font-bold mb-3 text-white">Own the Outcome</h3>
+                <p className="text-gray-300 text-sm">
+                  We don&apos;t just hand over files. We own the result — from design to deployment to post-launch support.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* What Sets Us Apart */}
-        <section className="container-custom py-20">
+        <section className="container-custom py-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-14"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading text-white">What Sets Us <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Apart</span></h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              We&apos;re not just another development agency. Here&apos;s what makes Sorai Tech unique.
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading text-white">Why Teams Choose Us</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="p-6"
-            >
-              <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <FiCpu className="text-orange-400 text-xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 font-heading text-white">AI-First Approach</h3>
-              <p className="text-gray-300">
-                We integrate AI thinking into every project, ensuring your solutions are future-ready and intelligent.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6">
+              <FiCpu className="text-orange-400 text-2xl mb-4" />
+              <h3 className="text-lg font-bold mb-2 text-white">Design + Code Under One Roof</h3>
+              <p className="text-gray-300 text-sm">
+                No handoff friction. Our designers and engineers work side by side — what gets designed is exactly what gets built.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="p-6"
-            >
-              <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <FiCode className="text-pink-600 text-xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 font-heading text-white">Full-Stack Expertise</h3>
-              <p className="text-gray-300">
-                From frontend to backend, cloud infrastructure to mobile apps - we handle the complete technology stack.
+            <div className="p-6">
+              <FiCode className="text-pink-500 text-2xl mb-4" />
+              <h3 className="text-lg font-bold mb-2 text-white">Flexible on Tech Stack</h3>
+              <p className="text-gray-300 text-sm">
+                React, Next.js, Webflow, Node.js, Python — we pick the right tool for the job, not the one we&apos;re most comfortable with.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="p-6"
-            >
-              <div className="bg-white/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <FiUsers className="text-orange-400 text-xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 font-heading text-white">Client-Centric Focus</h3>
-              <p className="text-gray-300">
-                Your success is our success. We work as an extension of your team, not just an external vendor.
+            <div className="p-6">
+              <FiUsers className="text-orange-400 text-2xl mb-4" />
+              <h3 className="text-lg font-bold mb-2 text-white">US-Friendly Operations</h3>
+              <p className="text-gray-300 text-sm">
+                Our team overlaps with US timezones. Daily async updates, weekly syncs, and Slack channels you can reach anytime.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
       </main>
       <Footer />
     </>
   );
-} 
+}

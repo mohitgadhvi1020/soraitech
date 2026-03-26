@@ -14,10 +14,10 @@ export default function MapSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading text-white">
-            Visit Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Office</span>
+            Based in <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Bangalore</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            We&apos;re located in the heart of Bangalore, Karnataka. Feel free to stop by during our working hours!
+            Our team operates out of Bangalore, Karnataka — India&apos;s tech capital.
           </p>
         </motion.div>
 
@@ -32,7 +32,7 @@ export default function MapSection() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.77490485704!2d77.3507609!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1714551248221!5m2!1sen!2sin"
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: 0, filter: "grayscale(60%) brightness(80%) contrast(1.1)" }}
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

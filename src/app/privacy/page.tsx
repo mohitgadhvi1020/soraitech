@@ -83,7 +83,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20">
+      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
         {/* Hero Section */}
         <section className="container-custom mb-20">
           <motion.div
@@ -92,11 +92,11 @@ export default function PrivacyPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading">Privacy Policy</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Last updated: January 1, 2024
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 font-heading text-white">Privacy Policy</h1>
+            <p className="text-lg text-gray-400 mb-6">
+              Last updated: March 1, 2026
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-300">
               At Sorai Tech, we are committed to protecting your privacy and ensuring the security of your personal information. 
               This privacy policy explains how we collect, use, and protect your information when you visit our website or use our services.
             </p>
@@ -111,13 +111,13 @@ export default function PrivacyPage() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl font-bold mb-6 font-heading">{section.title}</h2>
+                <h2 className="text-2xl font-bold mb-6 font-heading text-white">{section.title}</h2>
                 <div className="space-y-4">
                   {section.content.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p key={pIndex} className="text-gray-300 leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
         </section>
 
         {/* Contact Section */}
-        <section className="bg-gray-50 dark:bg-dark/30 py-16">
+        <section className="py-16">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -136,38 +136,38 @@ export default function PrivacyPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto text-center"
             >
-              <h2 className="text-3xl font-bold mb-6 font-heading">Questions About This Policy?</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              <h2 className="text-3xl font-bold mb-6 font-heading text-white">Questions About This Policy?</h2>
+              <p className="text-lg text-gray-300 mb-8">
                 If you have any questions about this privacy policy or how we handle your personal information, 
                 please don&apos;t hesitate to contact us.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
                 <div>
-                  <h3 className="font-bold mb-2">Email Us</h3>
+                  <h3 className="font-bold mb-2 text-white">Email Us</h3>
                   <a 
-                    href="mailto:privacy@soraitech.com" 
-                    className="text-primary hover:text-secondary transition-colors"
+                    href="mailto:contact@soraitech.com" 
+                    className="text-orange-400 hover:text-pink-600 transition-colors"
                   >
-                    privacy@soraitech.com
+                    contact@soraitech.com
                   </a>
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">Contact Form</h3>
+                  <h3 className="font-bold mb-2 text-white">Contact Form</h3>
                   <a 
                     href="/contact" 
-                    className="text-primary hover:text-secondary transition-colors"
+                    className="text-orange-400 hover:text-pink-600 transition-colors"
                   >
                     Use our contact form
                   </a>
                 </div>
               </div>
               
-              <div className="mt-8 p-6 bg-white dark:bg-dark/50 rounded-lg">
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <strong>Sorai Tech</strong><br />
+              <div className="mt-8 p-6 bg-gray-900/95 border border-gray-700/50 rounded-lg">
+                <p className="text-sm text-gray-300">
+                  <strong className="text-white">Sorai Tech</strong><br />
                   Bangalore, India<br />
-                  Email: info@soraitech.com
+                  Email: contact@soraitech.com
                 </p>
               </div>
             </motion.div>
@@ -177,4 +177,4 @@ export default function PrivacyPage() {
       <Footer />
     </>
   );
-} 
+}

@@ -3,219 +3,153 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FiMapPin, FiClock, FiDollarSign, FiUsers, FiHeart, FiTrendingUp, FiAward, FiCoffee } from "react-icons/fi";
+import { FiMapPin, FiClock, FiUsers } from "react-icons/fi";
 
 export default function CareersPage() {
   const openPositions = [
     {
       title: "Senior Full-Stack Developer",
       department: "Engineering",
-      location: "Bangalore, Karnataka / Remote",
+      location: "Bangalore / Remote",
       type: "Full-time",
       experience: "3-5 years",
-      salary: "₹8-15 LPA",
-      description: "We're looking for a skilled full-stack developer to join our growing team and work on cutting-edge AI-powered applications.",
+      description: "Work on client products end-to-end — from React frontends to Node.js APIs to cloud deployments.",
       requirements: [
-        "Strong experience with React, Node.js, and TypeScript",
-        "Experience with cloud platforms (AWS, Azure, or GCP)",
-        "Knowledge of AI/ML integration is a plus",
-        "Excellent problem-solving skills"
+        "Strong React, Node.js, and TypeScript experience",
+        "Familiarity with AWS or GCP",
+        "Comfortable with agile sprint workflows",
+        "AI/ML integration experience is a bonus"
       ]
     },
     {
       title: "AI/ML Engineer",
       department: "Engineering",
-      location: "Bangalore, Karnataka / Remote",
+      location: "Bangalore / Remote",
       type: "Full-time",
       experience: "2-4 years",
-      salary: "₹10-18 LPA",
-      description: "Join our AI team to develop intelligent solutions that solve real-world business problems.",
+      description: "Build and deploy ML models that solve real business problems for our clients.",
       requirements: [
-        "Strong background in Python and ML frameworks",
-        "Experience with TensorFlow, PyTorch, or similar",
-        "Knowledge of NLP, Computer Vision, or Deep Learning",
-        "Experience with MLOps and model deployment"
+        "Python, TensorFlow or PyTorch",
+        "Experience with NLP, CV, or recommendation systems",
+        "Ability to take models from notebook to production",
+        "MLOps and monitoring experience"
       ]
     },
     {
       title: "DevOps Engineer",
       department: "Infrastructure",
-      location: "Bangalore, Karnataka / Remote",
+      location: "Bangalore / Remote",
       type: "Full-time",
       experience: "2-4 years",
-      salary: "₹7-12 LPA",
-      description: "Help us build and maintain scalable infrastructure for our AI and web applications.",
+      description: "Build infrastructure and CI/CD pipelines that let our teams deploy with confidence.",
       requirements: [
-        "Experience with Docker, Kubernetes, and CI/CD",
-        "Knowledge of cloud platforms and infrastructure as code",
+        "Docker, Kubernetes, and Terraform",
+        "AWS or GCP hands-on experience",
         "Strong scripting skills (Bash, Python)",
-        "Experience with monitoring and logging tools"
+        "Monitoring with Prometheus, Grafana, or similar"
       ]
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: FiHeart,
-      title: "Health & Wellness",
-      description: "Comprehensive health insurance and wellness programs for you and your family."
-    },
-    {
-      icon: FiTrendingUp,
-      title: "Growth Opportunities",
-      description: "Continuous learning budget and clear career progression paths."
-    },
-    {
-      icon: FiUsers,
-      title: "Flexible Work",
-      description: "Remote-first culture with flexible working hours and work-life balance."
-    },
-    {
-      icon: FiAward,
-      title: "Performance Bonuses",
-      description: "Competitive salary with performance-based bonuses and equity options."
-    },
-    {
-      icon: FiCoffee,
-      title: "Great Environment",
-      description: "Modern office space, free meals, and a collaborative team culture."
-    },
-    {
-      icon: FiClock,
-      title: "Paid Time Off",
-      description: "Generous vacation policy and personal development days."
     }
   ];
 
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20">
-        {/* Hero Section */}
-        <section className="container-custom mb-20">
+      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+        <section className="container-custom mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heading">
-              Join Our <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Team</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
+              Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Sorai Tech</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Build the future of AI and software with passionate innovators who care about making a real impact.
+            <p className="text-lg text-gray-300">
+              We&apos;re a small team that ships real products. If you want ownership over your work and variety in your projects, we might be a good fit.
             </p>
           </motion.div>
         </section>
 
-        {/* Why Work With Us */}
-        <section className="bg-gray-50 dark:bg-dark/30 py-20 mb-20">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Why Choose Sorai Tech?</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                We&apos;re not just building software; we&apos;re building the future. Join us and be part of something extraordinary.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => {
-                const IconComponent = benefit.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="bg-white dark:bg-dark/50 rounded-xl p-6"
-                  >
-                    <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="text-primary text-xl" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 font-heading">{benefit.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
+        <section className="container-custom mb-20">
+          <h2 className="text-xl font-bold mb-6 text-white">What you get</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { title: "Real ownership", desc: "You own features end-to-end. No ticket factories." },
+              { title: "Remote-friendly", desc: "Work from anywhere. We care about output, not hours." },
+              { title: "Learning budget", desc: "Annual budget for courses, conferences, and certifications." },
+              { title: "Competitive pay", desc: "Market-rate salaries with performance bonuses." },
+              { title: "Small team", desc: "Your work has direct impact. No layers of management." },
+              { title: "Interesting clients", desc: "Cybersecurity, manufacturing, finance — not the same SaaS dashboard every time." },
+            ].map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-6"
+              >
+                <h3 className="text-sm font-bold mb-2 text-white">{benefit.title}</h3>
+                <p className="text-gray-400 text-sm">{benefit.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* Open Positions */}
         <section className="container-custom mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Open Positions</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Find your next opportunity and grow your career with us.
-            </p>
-          </motion.div>
-
-          <div className="space-y-6">
+          <h2 className="text-xl font-bold mb-6 text-white">Open positions</h2>
+          <div className="space-y-5">
             {openPositions.map((position, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  <div className="lg:col-span-2">
-                    <div className="flex flex-wrap items-center gap-4 mb-4">
-                      <h3 className="text-2xl font-bold font-heading">{position.title}</h3>
-                      <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <h3 className="text-xl font-bold text-white">{position.title}</h3>
+                      <span className="bg-white/5 text-orange-400 px-3 py-1 rounded-full text-xs border border-white/10">
                         {position.department}
                       </span>
                     </div>
                     
-                    <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-300 mb-4">
-                      <div className="flex items-center gap-2">
-                        <FiMapPin size={16} />
-                        <span>{position.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FiClock size={16} />
-                        <span>{position.type}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FiUsers size={16} />
-                        <span>{position.experience}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FiDollarSign size={16} />
-                        <span>{position.salary}</span>
-                      </div>
+                    <div className="flex flex-wrap gap-5 text-gray-400 text-sm mb-4">
+                      <span className="flex items-center gap-1.5">
+                        <FiMapPin size={14} className="text-orange-400" />
+                        {position.location}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <FiClock size={14} className="text-orange-400" />
+                        {position.type}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <FiUsers size={14} className="text-orange-400" />
+                        {position.experience}
+                      </span>
                     </div>
                     
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{position.description}</p>
+                    <p className="text-gray-300 text-sm mb-4">{position.description}</p>
                     
-                    <div>
-                      <h4 className="font-bold mb-2">Key Requirements:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
-                        {position.requirements.map((req, reqIndex) => (
-                          <li key={reqIndex}>{req}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <ul className="space-y-1.5">
+                      {position.requirements.map((req, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-400 text-sm">
+                          <span className="text-orange-400 mt-0.5">&#x2022;</span>
+                          {req}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   
-                  <div className="flex flex-col justify-center">
-                    <button className="btn-primary w-full mb-4">
-                      Apply Now
-                    </button>
-                    <button className="btn-secondary w-full">
-                      Learn More
-                    </button>
+                  <div className="flex-shrink-0">
+                    <a 
+                      href={`mailto:careers@soraitech.com?subject=Application: ${position.title}`} 
+                      className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 text-sm"
+                    >
+                      Apply
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -223,70 +157,48 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* Application Process */}
-        <section className="bg-gray-50 dark:bg-dark/30 py-20">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Our Hiring Process</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                We&apos;ve designed a fair and transparent process to find the best fit for both you and our team.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                { step: "1", title: "Application", description: "Submit your resume and cover letter through our portal." },
-                { step: "2", title: "Screening", description: "Initial phone/video call to discuss your background and interests." },
-                { step: "3", title: "Technical", description: "Technical interview or coding challenge relevant to the role." },
-                { step: "4", title: "Final Round", description: "Meet the team and discuss culture fit and career goals." }
-              ].map((process, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                    {process.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 font-heading">{process.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{process.description}</p>
-                </motion.div>
-              ))}
-            </div>
+        <section className="container-custom mb-20">
+          <h2 className="text-xl font-bold mb-6 text-white">How hiring works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            {[
+              { step: "1", title: "Apply", desc: "Send your resume to careers@soraitech.com" },
+              { step: "2", title: "Chat", desc: "30-min call to learn about each other" },
+              { step: "3", title: "Technical", desc: "Practical assessment relevant to the role" },
+              { step: "4", title: "Offer", desc: "Meet the team and finalize details" }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="bg-gradient-to-r from-orange-500 to-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                  {item.step}
+                </div>
+                <h3 className="text-sm font-bold mb-1 text-white">{item.title}</h3>
+                <p className="text-gray-400 text-xs">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="container-custom py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-12 text-center text-white"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-              Don&apos;t See a Perfect Fit?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              We&apos;re always interested in connecting with talented individuals. Send us your resume anyway!
+        <section className="container-custom">
+          <div className="bg-gradient-to-r from-orange-500 to-pink-600 rounded-2xl p-10 text-center text-white">
+            <h2 className="text-2xl font-bold mb-3">Don&apos;t see the right role?</h2>
+            <p className="text-white/90 mb-6 text-sm">
+              We&apos;re always open to meeting talented people. Send your resume anyway.
             </p>
             <a 
               href="mailto:careers@soraitech.com" 
-              className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-gray-900 px-7 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 text-sm"
             >
-              Contact Us
+              careers@soraitech.com
             </a>
-          </motion.div>
+          </div>
         </section>
       </main>
       <Footer />
     </>
   );
-} 
+}

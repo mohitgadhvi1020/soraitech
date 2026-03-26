@@ -52,13 +52,13 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white font-medium hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-400 hover:to-pink-600 transition-all duration-200"
+                className="text-gray-300 font-medium hover:text-white transition-colors duration-200"
               >
                 {item.name}
               </Link>
             ))}
-            <Link href="/contact" className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-              Let&apos;s Talk
+            <Link href="/contact" className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 text-sm">
+              Get in Touch
             </Link>
           </nav>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="text-white font-medium hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-orange-400 hover:to-pink-600 block py-3 text-lg transition-all duration-200"
+                    className="text-gray-300 font-medium hover:text-white block py-3 text-lg transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -108,10 +108,10 @@ export default function Navbar() {
               >
                 <Link 
                   href="/contact" 
-                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full text-center block"
+                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 w-full text-center block"
                   onClick={() => setIsOpen(false)}
                 >
-                  Let&apos;s Talk
+                  Get in Touch
                 </Link>
               </motion.div>
             </nav>

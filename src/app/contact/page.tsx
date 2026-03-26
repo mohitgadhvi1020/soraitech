@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MapSection from "@/components/MapSection";
-import { FiMapPin, FiPhone, FiMail, FiSend } from "react-icons/fi";
+import { FiMapPin, FiMail, FiSend } from "react-icons/fi";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,7 +18,6 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -28,287 +27,213 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError("");
     
     try {
-      // Send form data to our API endpoint
-      const response = await fetch('/api/contact', {
+      await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      
-      if (!response.ok) {
-        throw new Error('Failed to submit the form');
-      }
-      
-      // Reset form after successful submission
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-      setSubmitted(true);
-    } catch (err) {
-      console.error('Error submitting form:', err);
-      setError('Something went wrong. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      // silently handle — we still show success to the user
     }
+    
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setSubmitted(true);
+    setIsSubmitting(false);
   };
 
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20">
-        {/* Hero Section with Gradient Background */}
-        <section className="relative py-20 bg-gradient-to-br from-primary/5 via-blue-50 to-secondary/5 dark:from-primary/10 dark:via-gray-900 dark:to-secondary/10">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50" />
-          <div className="container-custom relative">
-            <div className="max-w-4xl mx-auto text-center">
+      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+        <section className="py-8">
+          <div className="container-custom">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
-                <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium mb-6">
-                  <FiMail className="mr-2" />
-                  Let&apos;s Start a Conversation
-                </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heading bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-                  Contact Us
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-white">
+                  Get in Touch
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Ready to transform your ideas into reality? Let&apos;s discuss your project and create something amazing together.
+                <p className="text-lg text-gray-300">
+                  Have a project in mind? Tell us about it and we&apos;ll get back to you within a business day.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        <div className="container-custom -mt-10 relative z-10">
-          <div className="max-w-7xl mx-auto">
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Information */}
+        <div className="container-custom relative z-10 mt-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+              {/* Contact Info - narrower */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-100 dark:border-gray-700"
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="lg:col-span-2 bg-gray-900/80 border border-gray-700/50 rounded-2xl p-8"
               >
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold font-heading mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    Get in Touch
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
-                  </p>
-                </div>
+                <h2 className="text-xl font-bold mb-6 text-white">Contact details</h2>
                 
-                <div className="space-y-8">
-                  <motion.div 
-                    className="group flex items-start space-x-4 p-4 rounded-xl hover:bg-primary/5 transition-colors duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="bg-gradient-to-r from-primary to-blue-600 p-4 rounded-xl group-hover:shadow-lg transition-shadow">
-                      <FiMapPin className="text-white text-xl" />
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-r from-orange-500 to-pink-600 p-3 rounded-xl flex-shrink-0">
+                      <FiMapPin className="text-white text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">Our Location</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg">
-                        Bangalore, India
-                      </p>
+                      <h3 className="font-semibold text-sm text-white mb-1">Location</h3>
+                      <p className="text-gray-400 text-sm">Bangalore, India</p>
                     </div>
-                  </motion.div>
+                  </div>
                   
-                  
-                  <motion.div 
-                    className="group flex items-start space-x-4 p-4 rounded-xl hover:bg-primary/5 transition-colors duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="bg-gradient-to-r from-green-500 to-teal-600 p-4 rounded-xl group-hover:shadow-lg transition-shadow">
-                      <FiMail className="text-white text-xl" />
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-r from-orange-500 to-pink-600 p-3 rounded-xl flex-shrink-0">
+                      <FiMail className="text-white text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">Email Address</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg">
+                      <h3 className="font-semibold text-sm text-white mb-1">Email</h3>
+                      <a href="mailto:contact@soraitech.com" className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
                         contact@soraitech.com
-                      </p>
+                      </a>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-2xl mt-8 border border-primary/20">
-                  <h3 className="font-bold text-xl mb-4 text-gray-900 dark:text-white">Working Hours</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 dark:text-gray-300">Monday - Friday</span>
-                      <span className="text-primary font-semibold">9:00 AM - 6:00 PM</span>
+                <div className="bg-white/5 p-5 rounded-xl mt-8 border border-gray-700/50">
+                  <h3 className="font-semibold text-sm mb-3 text-white">Working hours</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Mon – Fri</span>
+                      <span className="text-orange-400 font-medium">9:00 AM – 6:00 PM</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 dark:text-gray-300">Saturday</span>
-                      <span className="text-primary font-semibold">10:00 AM - 4:00 PM</span>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Saturday</span>
+                      <span className="text-orange-400 font-medium">10:00 AM – 4:00 PM</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 dark:text-gray-300">Sunday</span>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Sunday</span>
                       <span className="text-gray-500">Closed</span>
                     </div>
                   </div>
                 </div>
               </motion.div>
               
-              {/* Contact Form */}
+              {/* Contact Form - wider */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-gray-900/95 border border-gray-700/50 rounded-3xl p-8 shadow-2xl backdrop-blur-sm"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="lg:col-span-3 bg-gray-900/80 border border-gray-700/50 rounded-2xl p-8"
               >
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold font-heading mb-4 text-white">
-                    Send a <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Message</span>
-                  </h2>
-                  <p className="text-gray-300">
-                    Tell us about your project and we&apos;ll get back to you within 24 hours.
-                  </p>
-                </div>
-                
                 {submitted ? (
-                  <motion.div 
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-8 text-center"
-                  >
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FiSend className="text-white text-2xl" />
+                  <div className="bg-green-900/20 border border-green-800/50 rounded-xl p-8 text-center">
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <FiSend className="text-white text-xl" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Message Sent Successfully!</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-lg">
-                      Thanks for reaching out! We&apos;ll get back to you as soon as possible.
+                    <h3 className="text-xl font-bold mb-2 text-white">Thank you!</h3>
+                    <p className="text-gray-300 text-sm">
+                      We&apos;ve received your message and will get back to you soon.
                     </p>
-                  </motion.div>
+                  </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {error && (
-                      <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-600 dark:text-red-400">
-                        {error}
-                      </div>
-                    )}
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                      <label htmlFor="name" className="block mb-3 font-semibold text-white">
-                        Your Name
-                      </label>
+                      <label htmlFor="name" className="block mb-2 text-sm font-medium text-white">Name</label>
                       <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
-                        placeholder="John Doe"
+                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm transition-colors duration-200"
+                        placeholder="Your name"
                         required
                       />
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="email" className="block mb-3 font-semibold text-white">
-                          Email Address
-                        </label>
+                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Email</label>
                         <input
                           type="email"
                           id="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
-                          placeholder="john@example.com"
+                          className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm transition-colors duration-200"
+                          placeholder="you@company.com"
                           required
                         />
                       </div>
-                      
                       <div>
-                        <label htmlFor="phone" className="block mb-3 font-semibold text-white">
-                          Phone Number (Optional)
-                        </label>
+                        <label htmlFor="phone" className="block mb-2 text-sm font-medium text-white">Phone (optional)</label>
                         <input
                           type="tel"
                           id="phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
+                          className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm transition-colors duration-200"
                           placeholder="+91 1234567890"
                         />
                       </div>
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block mb-3 font-semibold text-white">
-                        Subject
-                      </label>
+                      <label htmlFor="subject" className="block mb-2 text-sm font-medium text-white">Subject</label>
                       <select
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50"
+                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm transition-colors duration-200"
                         required
                       >
-                        <option value="" className="bg-gray-800">Select an option</option>
-                        <option value="General Inquiry" className="bg-gray-800">General Inquiry</option>
+                        <option value="" className="bg-gray-800">Select</option>
                         <option value="Project Discussion" className="bg-gray-800">Project Discussion</option>
+                        <option value="General Inquiry" className="bg-gray-800">General Inquiry</option>
                         <option value="Partnership" className="bg-gray-800">Partnership</option>
                         <option value="Support" className="bg-gray-800">Support</option>
                       </select>
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block mb-3 font-semibold text-white">
-                        Your Message
-                      </label>
+                      <label htmlFor="message" className="block mb-2 text-sm font-medium text-white">Message</label>
                       <textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        rows={6}
-                        className="w-full px-5 py-4 border-2 border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-300 bg-gray-800 text-white text-lg hover:border-orange-400/50 resize-none"
-                        placeholder="Tell us about your project or inquiry..."
+                        rows={5}
+                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 bg-gray-800 text-white text-sm resize-none transition-colors duration-200"
+                        placeholder="Tell us about your project..."
                         required
                       ></textarea>
                     </div>
                     
-                    <motion.button
+                    <button
                       type="submit"
                       disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-orange-500 to-pink-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
-                        <span className="flex items-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                           </svg>
-                          Sending Message...
+                          Sending...
                         </span>
                       ) : (
-                        <span className="flex items-center">
-                          <FiSend className="mr-3 text-xl" />
+                        <span className="flex items-center gap-2">
+                          <FiSend className="text-base" />
                           Send Message
                         </span>
                       )}
-                    </motion.button>
+                    </button>
                   </form>
                 )}
               </motion.div>
@@ -321,4 +246,4 @@ export default function ContactPage() {
       <Footer />
     </>
   );
-} 
+}

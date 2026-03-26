@@ -107,7 +107,7 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20">
+      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
         {/* Hero Section */}
         <section className="container-custom mb-20">
           <motion.div
@@ -116,11 +116,11 @@ export default function TermsPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading">Terms of Service</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Last updated: January 1, 2024
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 font-heading text-white">Terms of Service</h1>
+            <p className="text-lg text-gray-400 mb-6">
+              Last updated: March 1, 2026
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-300">
               These Terms of Service govern your use of Sorai Tech&apos;s website and services. Please read them carefully 
               as they contain important information about your rights and obligations.
             </p>
@@ -135,13 +135,13 @@ export default function TermsPage() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl font-bold mb-6 font-heading">{section.title}</h2>
+                <h2 className="text-2xl font-bold mb-6 font-heading text-white">{section.title}</h2>
                 <div className="space-y-4">
                   {section.content.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p key={pIndex} className="text-gray-300 leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -152,7 +152,7 @@ export default function TermsPage() {
         </section>
 
         {/* Contact Section */}
-        <section className="bg-gray-50 dark:bg-dark/30 py-16">
+        <section className="py-16">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -160,42 +160,41 @@ export default function TermsPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto text-center"
             >
-              <h2 className="text-3xl font-bold mb-6 font-heading">Questions About These Terms?</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                If you have any questions about these Terms of Service or need clarification on any provisions, 
-                please contact us. We&apos;re here to help explain our terms and discuss how they apply to your specific situation.
+              <h2 className="text-3xl font-bold mb-6 font-heading text-white">Questions About These Terms?</h2>
+              <p className="text-lg text-gray-300 mb-8">
+                If you have any questions about these Terms of Service, please contact us.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
                 <div>
-                  <h3 className="font-bold mb-2">Legal Inquiries</h3>
+                  <h3 className="font-bold mb-2 text-white">Legal Inquiries</h3>
                   <a 
-                    href="mailto:legal@soraitech.com" 
-                    className="text-primary hover:text-secondary transition-colors"
+                    href="mailto:contact@soraitech.com" 
+                    className="text-orange-400 hover:text-pink-600 transition-colors"
                   >
-                    legal@soraitech.com
+                    contact@soraitech.com
                   </a>
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">General Questions</h3>
+                  <h3 className="font-bold mb-2 text-white">General Questions</h3>
                   <a 
                     href="/contact" 
-                    className="text-primary hover:text-secondary transition-colors"
+                    className="text-orange-400 hover:text-pink-600 transition-colors"
                   >
                     Contact our team
                   </a>
                 </div>
               </div>
               
-              <div className="mt-8 p-6 bg-white dark:bg-dark/50 rounded-lg">
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <strong>Sorai Tech</strong><br />
+              <div className="mt-8 p-6 bg-gray-900/95 border border-gray-700/50 rounded-lg">
+                <p className="text-sm text-gray-300">
+                  <strong className="text-white">Sorai Tech</strong><br />
                   Bangalore, India<br />
-                  Email: info@soraitech.com
+                  Email: contact@soraitech.com
                 </p>
               </div>
               
-              <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+              <div className="mt-6 text-sm text-gray-500">
                 <p>
                   These terms supplement any specific project agreements or contracts you may have with Sorai Tech. 
                   In case of conflicts, the terms of individual project agreements take precedence.
@@ -208,4 +207,4 @@ export default function TermsPage() {
       <Footer />
     </>
   );
-} 
+}
