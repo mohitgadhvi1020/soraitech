@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import CalendlyButton from "./CalendlyButton";
+import { CALENDLY_URL } from "@/config/calendly";
 
 const navItems = [
-  { name: "Home", href: "/" },
+  { name: "Services", href: "#services" },
+  { name: "Work", href: "#case-studies" },
+  { name: "Process", href: "#process" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -17,14 +20,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,39 +28,46 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-gray-900/95 backdrop-blur-sm shadow-2xl border-b border-gray-700/50" 
+        isScrolled
+          ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-gray-200/60"
           : "bg-transparent"
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-18 py-4">
           <Link href="/" className="flex items-center group">
-            <span className="text-2xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 transition-all duration-300 group-hover:scale-105">
+            <span className={`text-xl font-heading font-bold transition-colors duration-300 ${
+              isScrolled ? "text-gray-900" : "text-white"
+            }`}>
               Sorai Tech
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 font-medium hover:text-white transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  isScrolled
+                    ? "text-gray-600 hover:text-gray-900"
+                    : "text-gray-300 hover:text-white"
+                }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Link href="/contact" className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 text-sm">
-              Get in Touch
-            </Link>
+            <CalendlyButton url={CALENDLY_URL} variant="primary" size="md" className="!px-5 !py-2.5 !text-sm">
+              Book a Call
+            </CalendlyButton>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-2xl text-white hover:text-orange-400 transition-colors duration-200 p-2 hover:bg-white/10 rounded-lg"
+            className={`md:hidden text-2xl p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? "text-gray-900 hover:bg-gray-100"
+                : "text-white hover:bg-white/10"
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -73,27 +76,26 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="md:hidden bg-gray-900/95 backdrop-blur-sm shadow-2xl border-t border-gray-700/50"
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/60 shadow-lg"
         >
           <div className="container-custom py-6">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-1">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  transition={{ delay: index * 0.06 }}
                 >
                   <Link
                     href={item.href}
-                    className="text-gray-300 font-medium hover:text-white block py-3 text-lg transition-colors duration-200"
+                    className="text-gray-700 font-medium hover:text-brand-600 block py-3 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -101,18 +103,14 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
+                transition={{ delay: navItems.length * 0.06 }}
                 className="pt-4"
               >
-                <Link 
-                  href="/contact" 
-                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 w-full text-center block"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Get in Touch
-                </Link>
+                <CalendlyButton url={CALENDLY_URL} variant="primary" size="md" className="w-full !justify-center">
+                  Book a Call
+                </CalendlyButton>
               </motion.div>
             </nav>
           </div>
@@ -120,4 +118,4 @@ export default function Navbar() {
       )}
     </header>
   );
-} 
+}

@@ -156,7 +156,7 @@ export default function AboutPage() {
               <FiCode className="text-pink-500 text-2xl mb-4" />
               <h3 className="text-lg font-bold mb-2 text-white">Flexible on Tech Stack</h3>
               <p className="text-gray-300 text-sm">
-                React, Next.js, Webflow, Node.js, Python — we pick the right tool for the job, not the one we&apos;re most comfortable with.
+                Figma, React, Next.js, Webflow, WordPress, Node.js, Python — we pick the right tool for the job, not the one we&apos;re most comfortable with.
               </p>
             </div>
 

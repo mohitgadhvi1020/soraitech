@@ -16,9 +16,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sorai Tech | Product Studio — Design, Development & Product Management",
-  description: "Sorai Tech is a full-service product studio. We provide UI/UX design (Figma), frontend & backend development, Webflow, workflow automation, and dedicated product management. One team, zero gaps.",
-  keywords: "product studio, UI/UX design, Figma, web development, React, Next.js, Webflow, backend engineering, product management, workflow automation",
+  title: "Sorai Tech | Build, Launch & Grow Products — Dev, AI, SEO & AEO",
+  description: "Sorai Tech is a product + growth team that helps build, launch and scale products using development, AI, SEO and AEO (AI search optimization). From MVP to scale.",
+  keywords: "product studio, MVP development, AI automation, SEO, AEO, answer engine optimization, full-stack development, startup growth, SaaS development",
   icons: {
     icon: "/sorai tech logo.png",
     shortcut: "/sorai tech logo.png",

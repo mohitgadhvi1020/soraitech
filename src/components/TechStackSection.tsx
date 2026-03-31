@@ -1,79 +1,162 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionWrapper, { SectionHeader } from "./SectionWrapper";
+import {
+  FiCode,
+  FiLayers,
+  FiPenTool,
+  FiServer,
+  FiCpu,
+  FiCloud,
+  FiTrendingUp,
+} from "react-icons/fi";
 
-const categories = [
+type TechCategory = {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  items: string[];
+};
+
+const CATEGORIES: TechCategory[] = [
   {
-    label: "Design",
-    tools: ["Figma", "Framer", "Adobe XD", "Whimsical"],
+    title: "Design",
+    description: "Product UI/UX that’s clear, conversion-focused, and dev-ready.",
+    icon: <FiPenTool className="text-xl" />,
+    items: ["Figma", "Prototyping", "Design systems", "UX flows", "Copy + IA"],
   },
   {
-    label: "Frontend",
-    tools: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Webflow"],
+    title: "Frontend",
+    description: "Pixel-perfect UI, fast load times, and clean UX.",
+    icon: <FiLayers className="text-xl" />,
+    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
   {
-    label: "Backend",
-    tools: ["Node.js", "Python", "Java", "GraphQL", "REST APIs"],
+    title: "CMS & Marketing Sites",
+    description: "Fast landing pages your team can update without engineering.",
+    icon: <FiLayers className="text-xl" />,
+    items: ["Webflow", "WordPress", "Headless CMS", "Landing pages", "Analytics + tracking"],
   },
   {
-    label: "Database & Cloud",
-    tools: ["PostgreSQL", "MongoDB", "Redis", "AWS", "GCP"],
+    title: "Backend",
+    description: "Scalable APIs, auth, and data layers built to grow.",
+    icon: <FiServer className="text-xl" />,
+    items: ["Node.js", "Python", "PostgreSQL", "Redis", "REST / GraphQL"],
   },
   {
-    label: "DevOps",
-    tools: ["Docker", "Kubernetes", "GitHub Actions", "Terraform"],
+    title: "AI & Automation",
+    description: "Practical AI that saves time and drives outcomes.",
+    icon: <FiCpu className="text-xl" />,
+    items: ["LLM integrations", "RAG + embeddings", "Agents & workflows", "Document automation", "Internal tools"],
   },
   {
-    label: "Product & PM",
-    tools: ["Jira", "Linear", "Notion", "Slack", "Loom"],
+    title: "DevOps",
+    description: "Production-ready infra with monitoring and CI/CD.",
+    icon: <FiCloud className="text-xl" />,
+    items: ["AWS / GCP", "Vercel", "Docker", "CI/CD pipelines", "Observability"],
+  },
+  {
+    title: "Growth",
+    description: "Built to rank and convert — on Google and AI search.",
+    icon: <FiTrendingUp className="text-xl" />,
+    items: ["Technical SEO", "AEO (AI search)", "Schema & structured data", "Content strategy", "Analytics"],
+  },
+  {
+    title: "Quality",
+    description: "Maintainable code with performance baked in.",
+    icon: <FiCode className="text-xl" />,
+    items: ["Core Web Vitals", "Accessibility", "Testing strategy", "Performance budgets", "Code reviews"],
   },
 ];
 
-export default function TechStackSection() {
+export default function TechStackSection({
+  id = "tech-stack",
+  dark = false,
+}: {
+  id?: string;
+  dark?: boolean;
+}) {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Tools We{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Work With</span>
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            We&apos;re flexible on tooling and opinionated on quality. Here&apos;s what our team uses across design, engineering, and product.
-          </p>
-        </motion.div>
+    <SectionWrapper
+      id={id}
+      dark={dark}
+      className={dark ? "bg-surface-950" : "bg-white"}
+    >
+      <SectionHeader
+        label="Capabilities"
+        title={
+          <>
+            A Tech Stack Built to{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">
+              Ship & Scale
+            </span>
+          </>
+        }
+        subtitle="We’re flexible on tooling and opinionated on quality. These are the systems we ship with most often."
+        dark={dark}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat, i) => (
-            <motion.div
-              key={cat.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-6"
-            >
-              <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wider mb-4">{cat.label}</h3>
-              <div className="flex flex-wrap gap-2">
-                {cat.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="text-sm text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
-                  >
-                    {tool}
-                  </span>
-                ))}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-40px" }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.08 } },
+        }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {CATEGORIES.map((cat) => (
+          <motion.div
+            key={cat.title}
+            variants={{
+              hidden: { opacity: 0, y: 18 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className={`rounded-2xl border p-7 transition-all duration-300 ${
+              dark
+                ? "bg-white/[0.06] border-white/[0.12] hover:border-brand-400/30 hover:shadow-glow"
+                : "bg-gray-50 border-gray-100 hover:border-brand-200/60 hover:shadow-card-hover"
+            }`}
+          >
+            <div className="flex items-start gap-4 mb-4">
+              <div
+                className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                  dark ? "bg-brand-500/10 text-brand-300" : "bg-brand-500/10 text-brand-600"
+                }`}
+              >
+                {cat.icon}
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+              <div>
+                <h3 className={`${dark ? "text-white" : "text-gray-900"} font-bold text-lg`}>
+                  {cat.title}
+                </h3>
+                <p className={`${dark ? "text-gray-400" : "text-gray-600"} text-sm leading-relaxed`}>
+                  {cat.description}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {cat.items.map((item) => (
+                <span
+                  key={item}
+                  className={`text-xs px-3 py-1.5 rounded-full border ${
+                    dark
+                      ? "text-gray-200 bg-white/[0.05] border-white/[0.10]"
+                      : "text-gray-700 bg-white border-gray-200/70"
+                  }`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </SectionWrapper>
   );
 }
+
