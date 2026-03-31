@@ -6,7 +6,6 @@ import SEOAEOSection from "@/components/SEOAEOSection";
 import WhoIsThisForSection from "@/components/WhoIsThisForSection";
 import TechStackSection from "@/components/TechStackSection";
 import ProjectWorkSection from "@/components/ProjectWorkSection";
-import TeamSection from "@/components/TeamSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -24,7 +23,6 @@ export default function Home() {
         <SEOAEOSection />
         <WhoIsThisForSection />
         <ProjectWorkSection />
-        <TeamSection />
         <ProcessSection />
         <TestimonialSection />
         <FinalCTASection />

@@ -3,170 +3,212 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FiTarget, FiEye, FiHeart, FiUsers, FiCode, FiCpu } from "react-icons/fi";
+import SectionWrapper, { SectionHeader } from "@/components/SectionWrapper";
+import CalendlyButton from "@/components/CalendlyButton";
+import { CALENDLY_URL } from "@/config/calendly";
+import { FiTarget, FiEye, FiHeart, FiCpu, FiCode, FiUsers } from "react-icons/fi";
+
+const stats = [
+  { value: "15+", label: "Products Shipped" },
+  { value: "6+", label: "US & Global Clients" },
+  { value: "3+", label: "Years in Business" },
+  { value: "50+", label: "Engineers & Designers" },
+];
+
+const values = [
+  {
+    icon: <FiTarget className="text-xl" />,
+    title: "Ship, Don\u2019t Stall",
+    desc: "We bias toward shipping. Clear scope, tight sprints, working software every week. No endless discovery phases.",
+    color: "text-brand-500",
+    bg: "bg-brand-500/10",
+  },
+  {
+    icon: <FiEye className="text-xl" />,
+    title: "Full Transparency",
+    desc: "Daily standups, shared boards, weekly demos. You see everything \u2014 designs, code progress, blockers \u2014 in real time.",
+    color: "text-accent-500",
+    bg: "bg-accent-500/10",
+  },
+  {
+    icon: <FiHeart className="text-xl" />,
+    title: "Own the Outcome",
+    desc: "We don\u2019t just hand over files. We own the result \u2014 from design to deployment to post-launch support.",
+    color: "text-brand-500",
+    bg: "bg-brand-500/10",
+  },
+];
+
+const reasons = [
+  {
+    icon: <FiCpu className="text-2xl" />,
+    title: "Design + Code Under One Roof",
+    desc: "No handoff friction. Our designers and engineers work side by side \u2014 what gets designed is exactly what gets built.",
+    color: "text-brand-500",
+  },
+  {
+    icon: <FiCode className="text-2xl" />,
+    title: "Flexible on Tech Stack",
+    desc: "Figma, React, Next.js, Webflow, WordPress, Node.js, Python \u2014 we pick the right tool for the job, not the one we\u2019re most comfortable with.",
+    color: "text-accent-500",
+  },
+  {
+    icon: <FiUsers className="text-2xl" />,
+    title: "US-Friendly Operations",
+    desc: "Our team overlaps with US timezones. Daily async updates, weekly syncs, and Slack channels you can reach anytime.",
+    color: "text-brand-500",
+  },
+];
 
 export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-        <section className="container-custom mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">Sorai Tech</span>
-            </h1>
-            <p className="text-xl text-gray-300">
-              A product studio that designs, builds, and ships — so you don&apos;t have to hire 8 people to get one product out the door.
-            </p>
-          </motion.div>
-        </section>
-
-        <section className="container-custom mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main>
+        {/* Hero */}
+        <section className="pt-36 pb-20 bg-gradient-to-br from-brand-600 via-brand-700 to-surface-900">
+          <div className="container-custom">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl mx-auto text-center"
             >
-              <h2 className="text-2xl font-bold mb-5 font-heading text-white">Our Story</h2>
-              <p className="text-gray-300 mb-5">
-                Sorai Tech started because we saw too many businesses stuck between two bad options: expensive agencies that over-scope everything, or freelancers that disappear mid-project. We wanted to build something in between — a tight, reliable product team that you can trust to deliver.
-              </p>
-              <p className="text-gray-300 mb-5">
-                Founded by IIT Bombay alumni in Bangalore, we&apos;ve grown into a team of designers, engineers, and product managers who&apos;ve shipped products across cybersecurity, manufacturing, fintech, and more. Our clients are primarily in the US, and we operate on US-friendly timezones.
-              </p>
-              <p className="text-gray-300">
-                We handle everything from Figma wireframes to React frontends to backend APIs to deployment. You bring the idea and the domain expertise — we bring the team and the execution.
+              <span className="inline-block text-sm font-semibold tracking-wider uppercase text-brand-200 mb-3">
+                About Us
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
+                A Product Studio That{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
+                  Ships
+                </span>
+              </h1>
+              <p className="text-lg text-white/80 leading-relaxed">
+                We design, build, and launch products so you don&apos;t have to hire 8 people to get one product out the door.
               </p>
             </motion.div>
-            
+          </div>
+        </section>
+
+        {/* Story + Stats */}
+        <SectionWrapper>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gray-900/80 border border-gray-700/50 rounded-2xl p-8"
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-orange-400 mb-1">15+</p>
-                  <p className="text-gray-400 text-sm">Products Shipped</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-orange-400 mb-1">6+</p>
-                  <p className="text-gray-400 text-sm">US & Global Clients</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-orange-400 mb-1">3+</p>
-                  <p className="text-gray-400 text-sm">Years in Business</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-orange-400 mb-1">50+</p>
-                  <p className="text-gray-400 text-sm">Engineers & Designers</p>
-                </div>
+              <h2 className="text-3xl font-bold mb-6 font-heading text-gray-900">Our Story</h2>
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                Sorai Tech started because we saw too many businesses stuck between two bad options: expensive agencies that over-scope everything, or freelancers that disappear mid-project. We wanted to build something in between &mdash; a tight, reliable product team that you can trust to deliver.
+              </p>
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                Founded by IIT Bombay alumni in Bangalore, we&apos;ve grown into a team of designers, engineers, and product managers who&apos;ve shipped products across cybersecurity, manufacturing, fintech, and more. Our clients are primarily in the US, and we operate on US-friendly timezones.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                We handle everything from Figma wireframes to React frontends to backend APIs to deployment. You bring the idea and the domain expertise &mdash; we bring the team and the execution.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gray-50 rounded-2xl border border-gray-100 p-10"
+            >
+              <div className="grid grid-cols-2 gap-8">
+                {stats.map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="text-center"
+                  >
+                    <p className="text-3xl font-bold text-brand-600 mb-1">{stat.value}</p>
+                    <p className="text-gray-500 text-sm">{stat.label}</p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
-        </section>
+        </SectionWrapper>
 
-        <section className="py-16">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-14"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading text-white">What We Stand For</h2>
-            </motion.div>
+        {/* Values */}
+        <SectionWrapper className="bg-gray-50">
+          <SectionHeader
+            label="Our Values"
+            title="What We Stand For"
+            subtitle="Principles that guide every decision, every sprint, every deployment."
+          />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((v, i) => (
               <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
+                key={v.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="bg-white rounded-2xl border border-gray-100 p-8 text-center hover:shadow-card hover:border-brand-200/50 transition-all duration-300"
               >
-                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <FiTarget className="text-orange-400 text-xl" />
+                <div className={`w-14 h-14 rounded-xl ${v.bg} flex items-center justify-center ${v.color} mx-auto mb-5`}>
+                  {v.icon}
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-white">Ship, Don&apos;t Stall</h3>
-                <p className="text-gray-300 text-sm">
-                  We bias toward shipping. Clear scope, tight sprints, working software every week. No endless discovery phases.
-                </p>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">{v.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{v.desc}</p>
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
-              >
-                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <FiEye className="text-pink-500 text-xl" />
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-white">Full Transparency</h3>
-                <p className="text-gray-300 text-sm">
-                  Daily standups, shared boards, weekly demos. You see everything — designs, code progress, blockers — in real time.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-7 text-center"
-              >
-                <div className="bg-white/5 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <FiHeart className="text-orange-400 text-xl" />
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-white">Own the Outcome</h3>
-                <p className="text-gray-300 text-sm">
-                  We don&apos;t just hand over files. We own the result — from design to deployment to post-launch support.
-                </p>
-              </motion.div>
-            </div>
+            ))}
           </div>
-        </section>
+        </SectionWrapper>
 
-        <section className="container-custom py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-14"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading text-white">Why Teams Choose Us</h2>
-          </motion.div>
+        {/* Why Teams Choose Us */}
+        <SectionWrapper>
+          <SectionHeader
+            label="Why Us"
+            title="Why Teams Choose Us"
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6">
-              <FiCpu className="text-orange-400 text-2xl mb-4" />
-              <h3 className="text-lg font-bold mb-2 text-white">Design + Code Under One Roof</h3>
-              <p className="text-gray-300 text-sm">
-                No handoff friction. Our designers and engineers work side by side — what gets designed is exactly what gets built.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {reasons.map((r, i) => (
+              <motion.div
+                key={r.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="p-6"
+              >
+                <div className={`${r.color} mb-4`}>{r.icon}</div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{r.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{r.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </SectionWrapper>
+
+        {/* CTA */}
+        <section className="py-20 bg-gradient-to-r from-brand-600 to-brand-700">
+          <div className="container-custom text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-heading">
+                Ready to Build Something Great?
+              </h2>
+              <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+                Let&apos;s talk about your product idea and how we can bring it to life.
               </p>
-            </div>
-
-            <div className="p-6">
-              <FiCode className="text-pink-500 text-2xl mb-4" />
-              <h3 className="text-lg font-bold mb-2 text-white">Flexible on Tech Stack</h3>
-              <p className="text-gray-300 text-sm">
-                Figma, React, Next.js, Webflow, WordPress, Node.js, Python — we pick the right tool for the job, not the one we&apos;re most comfortable with.
-              </p>
-            </div>
-
-            <div className="p-6">
-              <FiUsers className="text-orange-400 text-2xl mb-4" />
-              <h3 className="text-lg font-bold mb-2 text-white">US-Friendly Operations</h3>
-              <p className="text-gray-300 text-sm">
-                Our team overlaps with US timezones. Daily async updates, weekly syncs, and Slack channels you can reach anytime.
-              </p>
-            </div>
+              <CalendlyButton url={CALENDLY_URL} variant="secondary" size="lg">
+                Book a Free Strategy Call
+              </CalendlyButton>
+            </motion.div>
           </div>
         </section>
       </main>
