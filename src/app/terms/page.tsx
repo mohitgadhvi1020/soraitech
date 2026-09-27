@@ -8,7 +8,7 @@ const sections = [
   {
     title: "Acceptance of Terms",
     content: [
-      "By accessing and using Sorai Tech\u2019s website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.",
+      "By accessing and using Soraaitech\u2019s website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.",
       "If you do not agree with any part of these terms, you must not use our website or services.",
       "These terms apply to all visitors, users, and others who access or use our services.",
       "We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of such changes.",
@@ -17,7 +17,7 @@ const sections = [
   {
     title: "Description of Services",
     content: [
-      "Sorai Tech provides software development, AI consulting, technical architecture, and related technology services.",
+      "Soraaitech provides software development, AI consulting, technical architecture, and related technology services.",
       "We offer custom software solutions, AI integration services, full-stack development, and cloud infrastructure consulting.",
       "Our services are provided on a project basis or through ongoing consulting arrangements as agreed upon in separate contracts.",
       "Service specifications, timelines, and deliverables are detailed in individual project agreements or statements of work.",
@@ -36,9 +36,9 @@ const sections = [
   {
     title: "Intellectual Property",
     content: [
-      "All original work product created by Sorai Tech for clients becomes the property of the client upon full payment, unless otherwise specified in the project agreement.",
-      "Sorai Tech retains ownership of pre-existing intellectual property, methodologies, and general knowledge used in providing services.",
-      "Clients grant Sorai Tech the right to showcase completed work in our portfolio and marketing materials, unless confidentiality agreements specify otherwise.",
+      "All original work product created by Soraaitech for clients becomes the property of the client upon full payment, unless otherwise specified in the project agreement.",
+      "Soraaitech retains ownership of pre-existing intellectual property, methodologies, and general knowledge used in providing services.",
+      "Clients grant Soraaitech the right to showcase completed work in our portfolio and marketing materials, unless confidentiality agreements specify otherwise.",
       "Both parties agree to respect and protect each other\u2019s intellectual property rights.",
     ],
   },
@@ -64,7 +64,7 @@ const sections = [
   {
     title: "Limitation of Liability",
     content: [
-      "Sorai Tech\u2019s liability is limited to the amount paid for the specific services that gave rise to the claim.",
+      "Soraaitech\u2019s liability is limited to the amount paid for the specific services that gave rise to the claim.",
       "We are not liable for any indirect, incidental, special, or consequential damages.",
       "We do not guarantee uninterrupted or error-free operation of software or systems we develop.",
       "Clients are responsible for maintaining appropriate backups and disaster recovery procedures.",
@@ -134,7 +134,7 @@ export default function TermsPage() {
                 transition={{ duration: 0.5 }}
                 className="text-gray-600 leading-relaxed mb-12 text-lg"
               >
-                These Terms of Service govern your use of Sorai Tech&apos;s website and services. Please read them carefully
+                These Terms of Service govern your use of Soraaitech&apos;s website and services. Please read them carefully
                 as they contain important information about your rights and obligations.
               </motion.p>
 
@@ -193,14 +193,14 @@ export default function TermsPage() {
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl">
                 <p className="text-sm text-gray-600">
-                  <strong className="text-gray-900">Sorai Tech</strong><br />
+                  <strong className="text-gray-900">Soraaitech</strong><br />
                   Bangalore, India<br />
                   Email: contact@soraitech.com
                 </p>
               </div>
 
               <p className="mt-6 text-xs text-gray-400">
-                These terms supplement any specific project agreements or contracts you may have with Sorai Tech.
+                These terms supplement any specific project agreements or contracts you may have with Soraaitech.
                 In case of conflicts, the terms of individual project agreements take precedence.
               </p>
             </motion.div>

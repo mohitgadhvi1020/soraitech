@@ -87,7 +87,7 @@ export default function CareersPage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white">
                 Join{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
-                  Sorai Tech
+                  Soraaitech
                 </span>
               </h1>
               <p className="text-lg text-white/80">

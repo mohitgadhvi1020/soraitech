@@ -1,33 +1,37 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
-import ServicesSection from "@/components/ServicesSection";
-import SEOAEOSection from "@/components/SEOAEOSection";
-import WhoIsThisForSection from "@/components/WhoIsThisForSection";
-import TechStackSection from "@/components/TechStackSection";
-import ProjectWorkSection from "@/components/ProjectWorkSection";
-import ProcessSection from "@/components/ProcessSection";
-import TestimonialSection from "@/components/TestimonialSection";
-import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
+import Hero from "@/components/site/Hero";
+import {
+  ClientStrip,
+  Services,
+  UseCases,
+  Approach,
+  Process,
+  Principles,
+  Testimonials,
+  Founder,
+  FAQ,
+  FinalCTA,
+} from "@/components/site/Sections";
 
 export default function Home() {
   return (
-    <>
+    <div className="font-grotesk text-ink">
       <Navbar />
       <main>
         <Hero />
-        <WhatWeDoSection />
-        <ServicesSection />
-        <TechStackSection />
-        <SEOAEOSection />
-        <WhoIsThisForSection />
-        <ProjectWorkSection />
-        <ProcessSection />
-        <TestimonialSection />
-        <FinalCTASection />
+        <ClientStrip />
+        <Services />
+        <UseCases />
+        <Approach />
+        <Process />
+        <Principles />
+        <Testimonials />
+        <Founder />
+        <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

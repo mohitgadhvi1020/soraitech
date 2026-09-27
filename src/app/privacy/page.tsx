@@ -110,7 +110,7 @@ export default function PrivacyPage() {
                 transition={{ duration: 0.5 }}
                 className="text-gray-600 leading-relaxed mb-12 text-lg"
               >
-                At Sorai Tech, we are committed to protecting your privacy and ensuring the security of your personal information.
+                At Soraaitech, we are committed to protecting your privacy and ensuring the security of your personal information.
                 This privacy policy explains how we collect, use, and protect your information when you visit our website or use our services.
               </motion.p>
 
@@ -169,7 +169,7 @@ export default function PrivacyPage() {
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl">
                 <p className="text-sm text-gray-600">
-                  <strong className="text-gray-900">Sorai Tech</strong><br />
+                  <strong className="text-gray-900">Soraaitech</strong><br />
                   Bangalore, India<br />
                   Email: contact@soraitech.com
                 </p>

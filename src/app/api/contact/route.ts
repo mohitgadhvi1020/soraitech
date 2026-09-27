@@ -1,10 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+const esc = (v: unknown) =>
+  String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { name, email, phone, subject, message } = data;
+    const { name, email, phone, subject, message } = data ?? {};
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: 'Name, email and message are required' }, { status: 400 });
+    }
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
@@ -19,15 +30,15 @@ export async function POST(req: NextRequest) {
     const mailOptions = {
       from: process.env.EMAIL_USER || 'your-email@gmail.com',
       to: 'contact@soraitech.com',
-      subject: `Contact Form: ${subject}`,
+      subject: `Contact Form: ${String(subject ?? '').replace(/[\r\n]/g, ' ')}`,
       html: `
         <h1>New Contact Form Submission</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>Email:</strong> ${esc(email)}</p>
+        <p><strong>Phone:</strong> ${esc(phone || 'Not provided')}</p>
+        <p><strong>Subject:</strong> ${esc(subject)}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <p>${esc(message)}</p>
       `,
     };
 

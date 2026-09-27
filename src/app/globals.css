@@ -59,3 +59,13 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(99, 102, 241, 0.3);
   color: inherit;
 }
+
+/* New design: headings inside font-grotesk pages use Schibsted Grotesk, not the legacy Poppins rule */
+.font-grotesk :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-grotesk), 'Helvetica Neue', Arial, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid #1D6A86;
+  outline-offset: 3px;
+}

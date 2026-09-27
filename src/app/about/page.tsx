@@ -101,7 +101,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-bold mb-6 font-heading text-gray-900">Our Story</h2>
               <p className="text-gray-600 mb-5 leading-relaxed">
-                Sorai Tech started because we saw too many businesses stuck between two bad options: expensive agencies that over-scope everything, or freelancers that disappear mid-project. We wanted to build something in between &mdash; a tight, reliable product team that you can trust to deliver.
+                Soraaitech started because we saw too many businesses stuck between two bad options: expensive agencies that over-scope everything, or freelancers that disappear mid-project. We wanted to build something in between &mdash; a tight, reliable product team that you can trust to deliver.
               </p>
               <p className="text-gray-600 mb-5 leading-relaxed">
                 Founded by IIT Bombay alumni in Bangalore, we&apos;ve grown into a team of designers, engineers, and product managers who&apos;ve shipped products across cybersecurity, manufacturing, fintech, and more. Our clients are primarily in the US, and we operate on US-friendly timezones.

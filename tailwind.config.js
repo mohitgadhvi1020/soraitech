@@ -9,6 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        paper: '#F4F6F5',
+        ink: { DEFAULT: '#122027', soft: '#1B2D36' },
+        muted: '#5B6B73',
+        line: '#D6DDDB',
+        lake: { DEFAULT: '#1D6A86', dark: '#15546B', light: '#E3EEF1' },
+        pass: '#2F855A',
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
@@ -45,6 +51,8 @@ module.exports = {
       fontFamily: {
         'sans': ['Inter', 'Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
         'heading': ['Poppins', 'Inter', 'sans-serif'],
+        'grotesk': ['var(--font-grotesk)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'plex': ['var(--font-plex)', 'ui-monospace', 'Menlo', 'monospace'],
       },
       fontSize: {
         'hero': ['4rem', { lineHeight: '1.08', letterSpacing: '-0.03em' }],
@@ -57,6 +65,7 @@ module.exports = {
         'shimmer': 'shimmer 2s linear infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'scroll-hint': 'scrollHint 2s ease-in-out infinite',
+        'marquee': 'marquee 40s linear infinite',
       },
       keyframes: {
         fadeUp: {
@@ -74,6 +83,10 @@ module.exports = {
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
           '50%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
         scrollHint: {
           '0%, 100%': { transform: 'translateY(0)', opacity: '1' },

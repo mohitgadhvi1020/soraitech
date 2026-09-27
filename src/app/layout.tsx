@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Schibsted_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,10 +15,24 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+const grotesk = Schibsted_Grotesk({
+  variable: "--font-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const plex = IBM_Plex_Mono({
+  variable: "--font-plex",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Sorai Tech | Build, Launch & Grow Products — Dev, AI, SEO & AEO",
-  description: "Sorai Tech is a product + growth team that helps build, launch and scale products using development, AI, SEO and AEO (AI search optimization). From MVP to scale.",
-  keywords: "product studio, MVP development, AI automation, SEO, AEO, answer engine optimization, full-stack development, startup growth, SaaS development",
+  title: "Soraaitech | AI Consulting and Automation for Growing Businesses",
+  description: "Soraaitech helps businesses find where AI saves time and money, then sets it up: customer support AI, document automation, sales and operations automation, and team training.",
+  keywords: "AI consulting, AI consultancy, AI automation for business, AI customer support, document automation, AI strategy, AI training for teams",
   icons: {
     icon: "/sorai tech logo.png",
     shortcut: "/sorai tech logo.png",
@@ -34,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body 
-        className={`${inter.variable} ${poppins.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${grotesk.variable} ${plex.variable} antialiased`}
         suppressHydrationWarning={true}
       >
         {children}
