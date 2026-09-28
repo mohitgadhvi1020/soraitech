@@ -1,31 +1,40 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Schibsted_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
+// Fonts are bundled from @fontsource packages so builds never depend on fetching Google Fonts.
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
-  display: 'swap',
-});
-
-const grotesk = Schibsted_Grotesk({
-  variable: "--font-grotesk",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  src: "../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+  weight: "100 900",
   display: "swap",
 });
 
-const plex = IBM_Plex_Mono({
+const poppins = localFont({
+  variable: "--font-poppins",
+  src: [
+    { path: "../../node_modules/@fontsource/poppins/files/poppins-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "../../node_modules/@fontsource/poppins/files/poppins-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../node_modules/@fontsource/poppins/files/poppins-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+});
+
+const grotesk = localFont({
+  variable: "--font-grotesk",
+  src: "../../node_modules/@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2",
+  weight: "400 900",
+  display: "swap",
+});
+
+const plex = localFont({
   variable: "--font-plex",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  src: [
+    { path: "../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   display: "swap",
 });
 
