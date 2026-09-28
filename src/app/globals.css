@@ -69,3 +69,9 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid #1D6A86;
   outline-offset: 3px;
 }
+
+/* Showcase carousel: progress line in the active tab */
+@keyframes tab-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

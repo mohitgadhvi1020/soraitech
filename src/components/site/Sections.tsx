@@ -1,14 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import CalendlyButton from "@/components/CalendlyButton";
 import { CALENDLY_URL } from "@/config/calendly";
 import {
   clients,
-  services,
+  audit,
+  solutionGroups,
   approach,
-  useCases,
   process,
   principles,
   testimonials,
@@ -55,9 +55,8 @@ export function ClientStrip() {
   );
 }
 
-/* Services as an expandable index, not a grid of cards */
+/* How we help: the audit method, then the solutions it leads to */
 export function Services() {
-  const [open, setOpen] = useState<string | null>(services[0].id);
   return (
     <section id="services" className="scroll-mt-24 bg-paper py-24 md:py-32">
       <div className={wrap}>
@@ -65,58 +64,68 @@ export function Services() {
           title="How we help"
           intro="From a first look at where AI fits, to a working solution your team uses every day. Most clients start with an audit."
         />
-        <ul className="border-t border-ink">
-          {services.map((s) => {
-            const isOpen = open === s.id;
-            return (
-              <li key={s.id} className="border-b border-line">
-                <button
-                  onClick={() => setOpen(isOpen ? null : s.id)}
-                  aria-expanded={isOpen}
-                  aria-controls={`svc-${s.id}`}
-                  className="group grid w-full grid-cols-1 gap-1 py-6 text-left md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_24px] md:items-baseline md:gap-8"
-                >
-                  <span className="font-grotesk text-[1.35rem] font-semibold tracking-[-0.02em] text-ink md:text-[1.6rem]">
-                    {s.name}
-                  </span>
-                  <span className="text-[17px] text-muted group-hover:text-ink">{s.outcome}</span>
-                  <span
-                    aria-hidden
-                    className={`hidden text-2xl leading-none text-lake transition-transform duration-300 md:block ${isOpen ? "rotate-45" : ""}`}
-                  >
-                    +
-                  </span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      id={`svc-${s.id}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="grid gap-8 pb-9 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_24px] md:gap-8">
-                        <p className="text-sm text-muted">{s.timeline}</p>
-                        <div>
-                          <p className="max-w-xl text-[16px] leading-relaxed text-ink">{s.detail}</p>
-                          <ul className="mt-5 flex flex-wrap gap-2">
-                            {s.includes.map((x) => (
-                              <li key={x} className="rounded bg-lake-light px-3 py-1.5 text-sm text-lake-dark">
-                                {x}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+
+        {/* Part 1: the audit */}
+        <div className="grid gap-12 border-t border-ink pt-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-lake">Step one</p>
+            <h3 className="mt-3 font-grotesk text-[1.6rem] font-semibold leading-tight tracking-[-0.02em] text-ink md:text-[1.9rem]">
+              {audit.name}
+            </h3>
+            <p className="mt-4 text-[17px] leading-relaxed text-muted">{audit.intro}</p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {audit.meta.map((m) => (
+                <li key={m} className="rounded bg-lake-light px-3 py-1.5 text-sm text-lake-dark">
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <ol className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+            {audit.steps.map((st, i) => (
+              <li key={st.name}>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-lake text-sm font-semibold text-lake">
+                  {i + 1}
+                </span>
+                <h4 className="mt-4 font-grotesk text-lg font-semibold text-ink">{st.name}</h4>
+                <p className="mt-2 leading-relaxed text-muted">{st.body}</p>
+                <p className="mt-3 text-sm text-ink">
+                  <span className="font-semibold text-lake">You get:</span> {st.get}
+                </p>
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ol>
+        </div>
+
+        {/* Part 2: solutions */}
+        <div className="mt-24 border-t border-ink pt-10">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-wider text-lake">Then</p>
+            <h3 className="mt-3 font-grotesk text-[1.6rem] font-semibold leading-tight tracking-[-0.02em] text-ink md:text-[1.9rem]">
+              Solutions we set up
+            </h3>
+            <p className="mt-4 text-[17px] leading-relaxed text-muted">
+              The full range, including the ones shown above. The audit tells you which of these are worth doing first.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
+            {solutionGroups.map((g) => (
+              <div key={g.group}>
+                <h4 className="border-b border-line pb-3 text-sm font-semibold uppercase tracking-wider text-muted">
+                  {g.group}
+                </h4>
+                <ul>
+                  {g.items.map((it) => (
+                    <li key={it.name} className="border-b border-line py-5">
+                      <p className="font-grotesk text-[1.15rem] font-semibold tracking-[-0.01em] text-ink">{it.name}</p>
+                      <p className="mt-1.5 leading-relaxed text-muted">{it.body}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -147,30 +156,6 @@ export function Approach() {
             </div>
           ))}
         </dl>
-      </div>
-    </section>
-  );
-}
-
-export function UseCases() {
-  return (
-    <section id="use-cases" className="scroll-mt-24 bg-paper py-24 md:py-32">
-      <div className={wrap}>
-        <SectionHead
-          title="Where AI saves time first"
-          intro="Every business is different, but these are the places we usually find the quickest wins."
-        />
-        <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
-          {useCases.map((u) => (
-            <article key={u.team} className="flex flex-col bg-white p-7">
-              <h3 className="font-grotesk text-[1.3rem] font-semibold tracking-[-0.015em] text-ink">{u.team}</h3>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-muted">Today</p>
-              <p className="mt-1.5 leading-relaxed text-muted">{u.before}</p>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-lake">With AI</p>
-              <p className="mt-1.5 leading-relaxed text-ink">{u.after}</p>
-            </article>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -234,24 +219,15 @@ export function Principles() {
 }
 
 export function Testimonials() {
-  const [first, ...rest] = testimonials;
   return (
     <section className="border-t border-line bg-white py-24 md:py-32">
       <div className={wrap}>
-        <p className="mb-8 text-sm font-semibold uppercase tracking-wider text-lake">What clients say</p>
-        <figure className="max-w-4xl">
-          <blockquote className="font-grotesk text-[1.55rem] font-medium leading-[1.35] tracking-[-0.015em] text-ink md:text-[2rem]">
-            &ldquo;{first.quote}&rdquo;
-          </blockquote>
-          <figcaption className="mt-6 text-muted">
-            <span className="font-semibold text-ink">{first.name}</span>, {first.role}
-          </figcaption>
-        </figure>
-        <div className="mt-16 grid gap-10 border-t border-line pt-10 md:grid-cols-2">
-          {rest.map((t) => (
-            <figure key={t.name}>
-              <blockquote className="leading-relaxed text-ink">&ldquo;{t.quote}&rdquo;</blockquote>
-              <figcaption className="mt-4 text-sm text-muted">
+        <SectionHead title="What clients say" />
+        <div className="grid gap-6 md:grid-cols-2">
+          {testimonials.map((t) => (
+            <figure key={t.name} className="flex flex-col justify-between rounded-2xl border border-line bg-paper p-8">
+              <blockquote className="text-[17px] leading-relaxed text-ink">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption className="mt-6 text-sm text-muted">
                 <span className="font-semibold text-ink">{t.name}</span>, {t.role}
               </figcaption>
             </figure>
@@ -265,16 +241,18 @@ export function Testimonials() {
 export function Founder() {
   return (
     <section className="bg-paper py-24 md:py-32">
-      <div className={`${wrap} max-w-3xl`}>
-        <p className="mb-5 text-sm font-semibold uppercase tracking-wider text-lake">{founder.eyebrow}</p>
-        <h2 className="font-grotesk text-[2rem] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[2.4rem]">
-          {founder.title}
-        </h2>
-        {founder.bio.map((b) => (
-          <p key={b} className="mt-5 text-lg leading-relaxed text-muted">
-            {b}
-          </p>
-        ))}
+      <div className={wrap}>
+        <div className="max-w-2xl">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-wider text-lake">{founder.eyebrow}</p>
+          <h2 className="font-grotesk text-[2rem] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[2.4rem]">
+            {founder.title}
+          </h2>
+          {founder.bio.map((b) => (
+            <p key={b} className="mt-5 text-lg leading-relaxed text-muted">
+              {b}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   );

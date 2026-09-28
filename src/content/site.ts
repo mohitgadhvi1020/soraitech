@@ -5,8 +5,8 @@
 export const CONTACT_EMAIL = "hello@soraitech.in"; // TODO: confirm the inbox you actually read
 
 export const nav = [
+  { name: "Solutions", href: "/#solutions" },
   { name: "Services", href: "/#services" },
-  { name: "Use cases", href: "/#use-cases" },
   { name: "How it works", href: "/#process" },
   { name: "Why us", href: "/#approach" },
   { name: "FAQ", href: "/#faq" },
@@ -19,94 +19,167 @@ export const clients = [
   "Fulcrum Pro",
 ];
 
-export type Service = {
-  id: string;
-  name: string;
-  outcome: string;
-  detail: string;
-  includes: string[];
-  timeline: string;
-};
-
-export const services: Service[] = [
+// "Solutions in action" showcase near the top of the homepage.
+// Images are illustrative mockups, captioned as examples on the page.
+export const showcase = [
   {
-    id: "audit",
-    name: "AI Opportunity Audit",
-    outcome: "Find out where AI will actually save you time and money.",
-    detail:
-      "We spend time with your team, look at how work really gets done, and pinpoint the tasks AI can take over. You get a clear report: what to automate first, what it will cost, and what it should save. No obligation to build anything with us.",
-    includes: ["Interviews with your team", "Ranked list of opportunities", "Costs, savings and a clear plan"],
-    timeline: "1–2 weeks, fixed fee",
+    id: "voice",
+    tab: "AI voice receptionist",
+    image: "/images/solutions/voice-receptionist.webp",
+    alt: "Example dashboard of an AI voice receptionist showing a live call transcript, calls answered, appointments booked and recent calls.",
+    headline: "Never miss a call again.",
+    body: "An AI receptionist that answers your phone in a natural voice, day and night. It handles common questions, books appointments straight into your calendar, and passes urgent or complex calls to your staff.",
+    points: [
+      "Answers every call instantly, even after hours",
+      "Books, reschedules and confirms appointments",
+      "Transfers important calls with a short summary",
+    ],
+    bestFor: "Clinics, salons, real estate and service businesses",
   },
   {
     id: "support",
-    name: "Customer support AI",
-    outcome: "Answer customers instantly, day and night.",
-    detail:
-      "An assistant on your website, WhatsApp or email that answers common questions from your own policies and product information. Anything it isn't sure about goes straight to your team, so customers never get a made-up answer.",
-    includes: ["Website, WhatsApp and email", "Answers from your own information", "Hands off to your team when needed"],
-    timeline: "3–6 weeks",
+    tab: "Customer support assistant",
+    image: "/images/solutions/support-assistant.webp",
+    alt: "Example of an AI support assistant on an online store and in a mobile chat app, answering a customer's question about their order with tracking details.",
+    headline: "Answer customers in seconds, day and night.",
+    body: "A chat assistant on your website and WhatsApp that answers from your own policies, product information and order data. When it isn't sure, it hands the conversation to your team instead of guessing.",
+    points: [
+      "Looks up orders, policies and product details",
+      "Works on your website, WhatsApp and email",
+      "Hands over to a person when it should",
+    ],
+    bestFor: "Online stores, D2C brands and service companies",
   },
   {
-    id: "documents",
-    name: "Document and data-entry automation",
-    outcome: "Stop typing invoices, forms and contracts into systems by hand.",
-    detail:
-      "AI reads your invoices, purchase orders, applications and contracts, pulls out the details and enters them where they belong. Your team only checks the few that need a second look.",
-    includes: ["Invoices, forms and contracts", "Flags anything unclear for review", "Connects to your accounting or CRM"],
-    timeline: "3–6 weeks",
+    id: "knowledge",
+    tab: "Company knowledge assistant",
+    image: "/images/solutions/knowledge-assistant.webp",
+    alt: "Example of a company knowledge assistant answering a question about refund policy, with links to the source documents.",
+    headline: "Every answer your team needs, from your own documents.",
+    body: "Your staff ask questions in plain English and get answers from your handbooks, SOPs and policies, with a link to the exact source so they can check it. No more digging through folders or asking the same person.",
+    points: [
+      "Connects to your documents and keeps them in sync",
+      "Shows the source behind every answer",
+      "Only shows people what they're allowed to see",
+    ],
+    bestFor: "Growing teams, operations, HR and customer service",
   },
   {
-    id: "operations",
-    name: "Sales and operations automation",
-    outcome: "Follow-ups, reports and admin that run themselves.",
-    detail:
-      "Qualifying leads, sending follow-ups, updating your CRM, preparing weekly reports, routing requests to the right person. We automate the repetitive steps and keep a person in charge of anything important.",
-    includes: ["Lead follow-up and CRM updates", "Automatic reports", "Approval before anything important goes out"],
-    timeline: "3–8 weeks",
+    id: "sales",
+    tab: "Sales follow-up",
+    image: "/images/solutions/sales-pipeline.webp",
+    alt: "Example sales pipeline where leads are followed up automatically, with an email draft waiting for approval and an activity timeline.",
+    headline: "Every lead followed up, automatically.",
+    body: "New enquiries get a personal reply within minutes. Follow-ups go out on time, your pipeline updates itself, and you approve anything important before it's sent.",
+    points: [
+      "Replies to new leads within minutes",
+      "Sends follow-ups so no lead goes cold",
+      "Logs every email, reply and meeting for you",
+    ],
+    bestFor: "B2B sales teams, real estate and education",
   },
   {
-    id: "training",
-    name: "Team training and AI adoption",
-    outcome: "Get your people using AI confidently and safely.",
-    detail:
-      "Practical workshops built around your team's real work, plus simple rules on what's safe to share with AI tools. Many teams save hours a week just by using the tools they already pay for properly.",
-    includes: ["Hands-on workshops", "AI usage policy for your company", "Follow-up support"],
-    timeline: "1–2 days, plus follow-up",
+    id: "reports",
+    tab: "Weekly business report",
+    image: "/images/solutions/weekly-report.webp",
+    alt: "Example weekly business summary email with revenue, new customers and support tickets, trend charts and a needs-your-attention box.",
+    headline: "Your business numbers, in your inbox every Monday.",
+    body: "We connect your sales, finance and support tools and send a clear weekly summary, with anything that needs your attention explained in plain English. No more pulling numbers from five places.",
+    points: [
+      "Pulls numbers from the tools you already use",
+      "Explains what changed and why it matters",
+      "Flags what needs your attention",
+    ],
+    bestFor: "Owners and managers",
   },
 ];
 
-// Use cases by team. Illustrative examples of what's possible, not client claims.
-export const useCases = [
+// "How we help", part 1: how the AI Opportunity Audit finds the right solution.
+export const audit = {
+  name: "The AI Opportunity Audit",
+  intro:
+    "Before recommending anything, we find out where your time and money actually go. Then we match each problem with the simplest solution that works.",
+  meta: ["1–2 weeks", "Fixed fee", "No obligation to build with us"],
+  steps: [
+    {
+      name: "Understand how you work",
+      body: "We talk to the people doing the work and look at the real process: the tools, the hand-offs and the workarounds.",
+      get: "A map of your key workflows",
+    },
+    {
+      name: "Measure where time and money go",
+      body: "For each task we estimate hours per month, cost, delays and mistakes, so every idea is judged on real numbers.",
+      get: "A time and cost baseline",
+    },
+    {
+      name: "Score every opportunity",
+      body: "Each idea is rated on savings, effort, risk and whether your data is ready. If something needs a simple process fix rather than AI, we say so.",
+      get: "A ranked shortlist",
+    },
+    {
+      name: "Match the right solution",
+      body: "For the top picks we choose the simplest option: a tool you already pay for, a ready-made product, or something set up for you. Each comes with a price and expected payback.",
+      get: "A costed plan with payback",
+    },
+  ],
+};
+
+// "How we help", part 2: solutions we set up. Add or remove items here.
+export const solutionGroups = [
   {
-    team: "Customer service",
-    before: "Staff answer the same 30 questions every day and customers wait hours for a reply.",
-    after: "Common questions are answered in seconds. Your team handles only the conversations that need a person.",
+    group: "Customers and sales",
+    items: [
+      {
+        name: "AI voice receptionist",
+        body: "Answers your phone day and night, books appointments and passes urgent calls to your staff.",
+      },
+      {
+        name: "AI support assistant",
+        body: "Answers customer questions on your website, WhatsApp and email, day and night, using your own information.",
+      },
+      {
+        name: "Lead follow-up and qualification",
+        body: "Replies to new enquiries in minutes, asks the right questions and books qualified leads into your calendar.",
+      },
+      {
+        name: "CRM that updates itself",
+        body: "Calls, emails and meetings are logged automatically, so your pipeline is always up to date.",
+      },
+    ],
   },
   {
-    team: "Finance and accounts",
-    before: "Invoices and bills are typed into the accounting system by hand, with errors to chase later.",
-    after: "Details are read and entered automatically. Your team reviews the exceptions.",
+    group: "Documents and data",
+    items: [
+      {
+        name: "Invoice and bill processing",
+        body: "Reads invoices and bills and enters them into your accounting system, flagging anything unusual.",
+      },
+      {
+        name: "Contract and form extraction",
+        body: "Pulls key details from contracts, applications and forms into a spreadsheet or your CRM.",
+      },
+      {
+        name: "Automatic reports",
+        body: "Collects numbers from your tools and sends a clear weekly summary of what needs attention.",
+      },
+    ],
   },
   {
-    team: "Sales",
-    before: "Leads go cold because nobody followed up in time, and the CRM is always out of date.",
-    after: "Every lead gets a fast, personal reply and the CRM updates itself.",
-  },
-  {
-    team: "Operations",
-    before: "Managers spend Monday mornings pulling numbers from five places into a report.",
-    after: "The report is waiting in their inbox, with the numbers that need attention highlighted.",
-  },
-  {
-    team: "HR and admin",
-    before: "Employees keep asking HR the same policy questions, and onboarding is a pile of documents.",
-    after: "An internal assistant answers policy questions instantly, from your own handbook.",
-  },
-  {
-    team: "Leadership",
-    before: "Lots of talk about AI, but no clear idea where it would pay off or what it would cost.",
-    after: "A short, costed plan showing which projects to do first and what each should return.",
+    group: "Your team",
+    items: [
+      {
+        name: "Company knowledge assistant",
+        body: "Staff ask questions in plain English and get answers from your handbooks, SOPs and past documents.",
+      },
+      {
+        name: "Inbox sorting and draft replies",
+        body: "Sorts incoming email, drafts replies to common requests and sends the rest to the right person.",
+      },
+      {
+        name: "AI training and usage policy",
+        body: "Hands-on workshops and simple rules so your team uses AI tools safely and well.",
+      },
+    ],
   },
 ];
 

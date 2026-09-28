@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/site/Hero";
+import Showcase from "@/components/site/Showcase";
 import {
   ClientStrip,
   Services,
-  UseCases,
   Approach,
   Process,
   Principles,
@@ -21,8 +21,8 @@ export default function Home() {
       <main>
         <Hero />
         <ClientStrip />
+        <Showcase />
         <Services />
-        <UseCases />
         <Approach />
         <Process />
         <Principles />

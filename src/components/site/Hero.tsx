@@ -51,7 +51,7 @@ export default function Hero() {
               Book a free consultation
             </CalendlyButton>
             <a
-              href="#use-cases"
+              href="#solutions"
               className="inline-flex items-center justify-center rounded-md border border-line px-6 py-[13px] text-[15px] font-semibold leading-6 text-ink transition-colors hover:border-ink"
             >
               See what AI can do

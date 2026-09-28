@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, services } from "@/content/site";
+import { CONTACT_EMAIL, audit, showcase } from "@/content/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,10 +19,10 @@ export default function Footer() {
         <nav aria-label="Services">
           <p className="mb-4 text-sm text-paper">Services</p>
           <ul className="space-y-2.5">
-            {services.map((s) => (
-              <li key={s.id}>
-                <Link href={`/#services`} className="hover:text-paper">
-                  {s.name}
+            {[audit.name.replace(/^The /, ""), ...showcase.map((s) => s.tab)].map((name) => (
+              <li key={name}>
+                <Link href={name === audit.name.replace(/^The /, "") ? "/#services" : "/#solutions"} className="hover:text-paper">
+                  {name}
                 </Link>
               </li>
             ))}
